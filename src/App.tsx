@@ -1,4 +1,5 @@
-import Note from "./components/note/Note";
+import { Note } from 'components/note/Note';
+import { Button , Input , Link} from 'components/UI'
 
 function App() {
   return (
@@ -6,6 +7,9 @@ function App() {
       <header className="App-header">
        WEETASK
        <Note/>
+       <Input/>
+       <Button/>
+       <Link></Link>
       </header>
     </div>
   );
