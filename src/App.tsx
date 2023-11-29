@@ -1,5 +1,5 @@
 import { Note } from 'components/note/Note';
-import { Button , Input , Link} from 'components/UI'
+import { Button , Input , Link } from 'components/UI'
 
 function App() {
   return (
