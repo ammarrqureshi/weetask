@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
        WEETASK
        <Note/>
-       <Input/>
+       <Input placeholder="placeholder here"/>
        <Button onClick={console.log("hello")}>Hello</Button>
       </header>
     </div>
