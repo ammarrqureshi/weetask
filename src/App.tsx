@@ -8,7 +8,7 @@ function App() {
        WEETASK
        <Note/>
        <Input/>
-       <Button/>
+       <Button onClick={console.log("hello")}>Hello</Button>
       </header>
     </div>
   );
