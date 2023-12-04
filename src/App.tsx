@@ -8,7 +8,7 @@ function App() {
        WEETASK
        <Task/>
        <Input placeholder="placeholder here"/>
-       <Button onClick={console.log("hello")}>Hello</Button>
+       <Button value='hello' >Hello</Button>
       </header>
     </div>
   );
