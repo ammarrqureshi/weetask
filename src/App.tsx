@@ -33,7 +33,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App">
+    <div className="App w-8 bg-violet-600">
       <header className="App-header">
         WEETASK
         <Task />
