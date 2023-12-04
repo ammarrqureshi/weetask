@@ -33,7 +33,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App w-8 bg-violet-600">
+    <div className="App bg-slate-900 m-8 border-slate-500 border dark:text-cyan-300 rounded-md ">
       <header className="App-header">
         WEETASK
         <h1 className="text-3xl font-bold underline">TESTING TAILWIND</h1>
