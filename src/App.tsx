@@ -36,6 +36,7 @@ const App: React.FC = () => {
     <div className="App w-8 bg-violet-600">
       <header className="App-header">
         WEETASK
+        <h1 className="text-3xl font-bold underline">TESTING TAILWIND</h1>
         <Task />
         <Input />
         <button>click to log</button>
