@@ -1,4 +1,4 @@
-import { Note } from 'components/note/Note';
+import { Task } from 'components/task/Task';
 import { Button , Input } from 'components/UI'
 
 function App() {
@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        WEETASK
-       <Note/>
+       <Task/>
        <Input placeholder="placeholder here"/>
        <Button onClick={console.log("hello")}>Hello</Button>
       </header>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Note = () => {
+export const Task = () => {
   return (
     <div className='task'>
       <span className='task-icon'></span>

@@ -1,9 +1,9 @@
-import {ReactNode} from 'react'
+import { ReactNode } from 'react'
 
-interface Props {
+interface Props { 
  children: ReactNode;
 value: string;
- onClick: () => void; // 💡 added onClick supportE
+ onClick: () => void; 
 }
 export const Button = ( props: Props ) => {
   const {children , onClick ,value} = props;
