@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Input = (props) => {
+export const Input = () => {
   return (
-    <div><input type="text" placeholder={props.placeholder}/></div>
+    <div><input type="text" /></div>
   )
 }
