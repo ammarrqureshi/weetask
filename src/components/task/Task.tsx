@@ -1,6 +1,5 @@
-import { TaskContext } from "contexts/TaskContext";
+import { TaskContext } from "../../contexts/TaskContext";
 import { useContext } from "react";
-
 export const assignPriority = (priority: any) => {
   switch (priority) {
     case "high":

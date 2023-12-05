@@ -1,4 +1,4 @@
-import { TaskType } from "types/types";
+import { TaskType } from "./types/types";
 export const Tasks: TaskType[] = [
   {
     text: "task no 1",

@@ -1,2 +1,2 @@
-export * from 'components/UI/Button'
-export * from 'components/UI/Input'
+export * from './Button'
+export * from './Input'
