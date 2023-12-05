@@ -1,5 +1,6 @@
 import { Task } from "components/task/Task";
 import { Button, Input } from "components/UI";
+import { TaskContext } from "contexts/TaskContext";
 import { Tasks } from "data";
 
 const App: React.FC = () => {
@@ -13,9 +14,10 @@ const App: React.FC = () => {
         WEETASK
         <Input />
         {Tasks.map((task) => (
-          <Task   isComplete={task.isComplete} created_at={new Date()} text={task.text + task.status} priority={task.priority} />
+          <TaskContext.Provider value={task}>
+            <Task />
+          </TaskContext.Provider>
         ))}
-
         <Button
           onClick={btnclick}
           className="m-2 rounded-full border-t-2 text-slate-300 border-slate-600 bg-slate-800 px-4 py-2 drop-shadow-xl hover:bg-slate-700"
