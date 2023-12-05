@@ -1,50 +1,28 @@
 import { Task } from "components/task/Task";
 import { Button, Input } from "components/UI";
-import { KeyboardEvent, useEffect } from "react";
+import { Tasks } from "data";
 
 const App: React.FC = () => {
-  const handleKeyDown = (event: any) => {
-    switch (event.code) {
-      case "ArrowUp":
-        
-       console.log(" Mario moves up");
-        break;
-      case "ArrowDown":
-        alert(" Mario moves down");
-        break;
-      case "ArrowLeft":
-        alert(" Mario moves left");
-        break;
-      case "ArrowRight":
-        alert(" Mario moves right");
-        break;
-
-      default:
-        break;
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+  function btnclick() {
+    console.log("hello world!");
+  }
 
   return (
-    <div className="App bg-slate-900 m-8 border-slate-500 border dark:text-cyan-300 rounded-md ">
+    <div className="App">
       <header className="App-header">
         WEETASK
-        <h1 className="text-3xl font-bold underline">TESTING TAILWIND</h1>
-        <Task />
         <Input />
-        <button>click to log</button>
-        <div
-          id="box"
-          style={{ background: "red", width: "10px", height: "10px" }}
-        ></div>
-        {/* <Button value='hello' >Hello</Button> */}
+        {Tasks.map((task) => (
+          <Task   isComplete={task.isComplete} created_at={new Date()} text={task.text + task.status} priority={task.priority} />
+        ))}
+
+        <Button
+          onClick={btnclick}
+          className="m-2 rounded-full border-t-2 text-slate-300 border-slate-600 bg-slate-800 px-4 py-2 drop-shadow-xl hover:bg-slate-700"
+          value="hello"
+        >
+          Hello
+        </Button>
       </header>
     </div>
   );

@@ -1,13 +1,14 @@
-import { ReactNode } from 'react'
+import { HtmlHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
-interface Props { 
- children: ReactNode;
-value: string;
- onClick: () => void; 
+type ButtonProps = {
+  value: string,
+  children: ReactNode,
+  onClick: MouseEventHandler,
+  className: string
 }
-export const Button = ( props: Props ) => {
-  const {children , onClick ,value} = props;
+
+export const Button = ( props: ButtonProps ) => {
   return (
-    <button onClick={onClick}  value={value}>{children}</button>
+    <button onClick={props.onClick} className={props.className}  value={props.value}>{props.children}</button>
   )
 }
