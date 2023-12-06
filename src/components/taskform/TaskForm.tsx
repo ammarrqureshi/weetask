@@ -6,31 +6,30 @@ import { useState, ChangeEvent, FormEvent, useContext } from "react";
 export const TaskForm = () => {
   const [input, setInput] = useState({
     text: "",
-    priority: "",
+    priority: "Not assigned",
   });
   const { addTask } = useContext(TaskContext) as TaskContextType;
 
-  
-
-  const formSubmitHandler= (e: FormEvent) => {
+  const formSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
-
-    const newTask :TaskType = {
-      id:Math.random(),
-      text: input.text,
-      status: "pending",
-      isComplete: false,
-      created_at: new Date(),
-      priority: input.priority,
-    };
-addTask(newTask);
-setInput({
-  text: "",
-  priority: ""
-  
-})
+    if (input.text.length > 0 && input.priority.length > 0) {
+      const newTask: TaskType = {
+        id: Math.random(),
+        text: input.text,
+        status: "pending",
+        isComplete: false,
+        created_at: new Date(),
+        priority: input.priority,
+      };
+      addTask(newTask);
+      setInput({
+        text: "",
+        priority: "Not assigned",
+      });
+    } else {
+      console.log("write something in damn boxes!");
+    }
   };
-
 
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -40,6 +39,11 @@ setInput({
       ...prev,
       [name]: value,
     }));
+  };
+  const selectChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    e.preventDefault();
+    console.log(e.target.value);
+    setInput((prev) => ({ ...prev, priority: e.target.value }));
   };
 
   return (
@@ -51,18 +55,30 @@ setInput({
         placeholder="Enter your task"
         value={input.text}
       />
-      <Input
+
+      <select id="priority" value={input.priority} name="priority" onChange={selectChangeHandler}>
+      <option value="Not assigned" key="Not assigned">
+          Not Assigned
+        </option>
+        <option value="high" key="high">
+          High
+        </option>
+        <option value="medium" key="medium">
+          Medium
+        </option>
+        <option value="low" key="low">
+          Low
+        </option>
+      </select>
+      {/* <Input
         onChange={inputChangeHandler}
         label="Task Priority"
         name="priority"
         placeholder="priority"
         value={input.priority}
 
-      />
-      <Button value="hello">
-        Hello
-      </Button>
+      /> */}
+      <Button value="add">Add</Button>
     </form>
   );
 };
-
