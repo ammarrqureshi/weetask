@@ -1,6 +1,6 @@
 import { TaskType } from "../../types/types.tasks";
 
-export const assignPriority = (priority: any) => {
+export const assignPriority = (priority: any,) => {
   switch (priority) {
     case "high":
       return "bg-red-900";
@@ -13,10 +13,11 @@ export const assignPriority = (priority: any) => {
       break;
 
     default:
+      return "display-none"
       break;
   }
 };
-export const Task = (task:TaskType) => {
+export const Task = (task:TaskType, {...rest}) => {
 
   return (
     <div

@@ -5,8 +5,8 @@ import { useState, ChangeEvent, FormEvent, useContext } from "react";
 
 export const TaskForm = () => {
   const [input, setInput] = useState({
-    text: "task4",
-    priority: "medium",
+    text: "",
+    priority: "",
   });
   const { addTask } = useContext(TaskContext) as TaskContextType;
 
@@ -24,6 +24,11 @@ export const TaskForm = () => {
       priority: input.priority,
     };
 addTask(newTask);
+setInput({
+  text: "",
+  priority: ""
+  
+})
   };
 
 
@@ -44,12 +49,15 @@ addTask(newTask);
         label="Task Text"
         name="text"
         placeholder="Enter your task"
+        value={input.text}
       />
       <Input
         onChange={inputChangeHandler}
         label="Task Priority"
         name="priority"
         placeholder="priority"
+        value={input.priority}
+
       />
       <Button value="hello">
         Hello
