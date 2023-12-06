@@ -1,4 +1,5 @@
 import { TaskType } from "../../types/types.tasks";
+import { Icon } from "../UI/Icon";
 
 export const assignPriority = (priority: any,) => {
   switch (priority) {
@@ -25,9 +26,7 @@ export const Task = (task:TaskType, {...rest}) => {
         task.priority
       )}`}
     >
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 mr-4">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-</svg>
+{task.isComplete ? <Icon width="20px" name="check-icon"/>: <Icon name="empty-circle"/>}
       <a className={task.isComplete ? "line-through" : ""} href="#task">
         {task.text}
       </a>
