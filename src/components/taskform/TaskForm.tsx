@@ -9,6 +9,7 @@ export const TaskForm = () => {
     priority: "Not assigned",
   });
   const { addTask } = useContext(TaskContext) as TaskContextType;
+  const [isError, setIsError] = useState(false);
 
   const formSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
@@ -26,8 +27,10 @@ export const TaskForm = () => {
         text: "",
         priority: "Not assigned",
       });
+      setIsError(false);
     } else {
-      console.log("write something in damn boxes!");
+      console.log("error occured!")
+      setIsError(true);
     }
   };
 
@@ -44,11 +47,13 @@ export const TaskForm = () => {
     e.preventDefault();
     console.log(e.target.value);
     setInput((prev) => ({ ...prev, priority: e.target.value }));
+
   };
 
   return (
     <form onSubmit={formSubmitHandler}>
       <Input
+      style= {isError ? {borderColor: "red"}: {borderColor: ""}}
         onChange={inputChangeHandler}
         label="Task Text"
         name="text"
