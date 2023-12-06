@@ -9,7 +9,19 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [tasks, setTasks] = useState<TaskType[]>(Tasks);
-
+  const checkTask = (id: number) => {
+    tasks.filter((task) => {
+      if (task.id === id) {
+        if (task.isComplete === true) {
+          task.isComplete = false;
+          setTasks([...tasks]);
+        } else {
+          task.isComplete = true;
+          setTasks([...tasks]);
+        }
+      }
+    });
+  };
   const addTask = (task: TaskType) => {
     const newTask: TaskType = {
       id: task.id,
@@ -22,7 +34,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
     setTasks([...tasks, newTask]);
   };
   return (
-    <TaskContext.Provider value={{ tasks, addTask }}>
+    <TaskContext.Provider value={{ tasks, addTask, checkTask }}>
       {children}
     </TaskContext.Provider>
   );

@@ -1,8 +1,7 @@
 import React, { InputHTMLAttributes } from 'react'
 
 interface InputType extends InputHTMLAttributes<HTMLInputElement>{
-label: string;
-
+label:string;
 }
 export const Input = ( { ...rest}:InputType) => {
   return (
