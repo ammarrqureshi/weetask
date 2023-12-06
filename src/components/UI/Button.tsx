@@ -1,11 +1,9 @@
-import { ButtonHTMLAttributes, HtmlHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
-interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement>{
-children: ReactNode;
+interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
 }
 
-export const Button = ( {children,...rest}:ButtonType ) => {
-  return (
-    <button {...rest} >{children}</button>
-  )
-}
+export const Button = ({ children, ...rest }: ButtonType) => {
+  return <button className="m-2 rounded-full border-t-2 text-slate-300 border-slate-600 bg-slate-800 px-4 py-2 drop-shadow-xl hover:bg-slate-700" {...rest}>{children}</button>;
+};

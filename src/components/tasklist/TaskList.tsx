@@ -1,15 +1,17 @@
 import { Task } from "../task/Task";
-import { Tasks } from "../../data";
 import { TaskContext } from "../../contexts/TaskContext";
+import { useContext } from "react";
+import { TaskContextType } from "../../types/types.tasks";
 
 export const TaskList = () => {
+    const { tasks } = useContext(TaskContext) as TaskContextType;
   return (
-    <div>
-      {Tasks.map((task) => (
-        <TaskContext.Provider value={task}>
-          <Task />
-        </TaskContext.Provider>
-      ))}
+<div>
+    
+      {tasks.map((task) => (
+          <Task {...task}/>    
+      ))} 
     </div>
   );
 };
+ 
