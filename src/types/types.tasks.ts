@@ -10,4 +10,5 @@ export type TaskType = {
 export interface TaskContextType {
   tasks: TaskType[];
   addTask: (task: TaskType) => void;
+  updateTask: (id: number) => void;
 }
