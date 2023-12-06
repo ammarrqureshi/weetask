@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import { TaskType } from "../types/types";
+import { TaskType } from "../components/task/Task";
 export const TaskContext = createContext<TaskType>({
   text: "task 1",
   status: "pending",

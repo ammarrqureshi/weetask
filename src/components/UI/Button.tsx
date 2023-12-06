@@ -1,14 +1,11 @@
-import { HtmlHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import { ButtonHTMLAttributes, HtmlHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
-type ButtonProps = {
-  value: string,
-  children: ReactNode,
-  onClick: MouseEventHandler,
-  className: string
+interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement>{
+children: ReactNode;
 }
 
-export const Button = ( props: ButtonProps ) => {
+export const Button = ( {children,...rest}:ButtonType ) => {
   return (
-    <button onClick={props.onClick} className={props.className}  value={props.value}>{props.children}</button>
+    <button {...rest} >{children}</button>
   )
 }

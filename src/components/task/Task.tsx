@@ -1,5 +1,13 @@
 import { TaskContext } from "../../contexts/TaskContext";
 import { useContext } from "react";
+
+export type TaskType = {
+  text: string;
+  priority?: "high" | "medium" | "low";
+  status?: "progress" | "pending" | "completed";
+  isComplete: boolean;
+  created_at: Date;
+};
 export const assignPriority = (priority: any) => {
   switch (priority) {
     case "high":

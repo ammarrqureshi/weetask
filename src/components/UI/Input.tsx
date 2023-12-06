@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { InputHTMLAttributes } from 'react'
 
-export const Input = () => {
+interface InputType extends InputHTMLAttributes<HTMLInputElement>{
+label: string;
+
+}
+export const Input = ( {label, ...rest}:InputType) => {
   return (
-    <><input className='bg-inherit py-4 px-3 border-2 border-slate-700 rounded-md text-slate-300 ' type="text" /></>
+    <><input {...rest} className='bg-inherit py-4 px-3 border-2 border-slate-700 rounded-md text-slate-300 ' type="text" /></>
   )
 }

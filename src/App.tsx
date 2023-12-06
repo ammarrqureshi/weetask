@@ -1,21 +1,22 @@
 import { Button, Input } from "./components/UI";
+import { TaskForm } from "./components/taskform/TaskForm";
 import { TaskList } from "./components/tasklist/TaskList";
 import { Tasks } from "./data";
+
 const App: React.FC = () => {
   function btnclick() {
     console.log("hello world!");
   }
 
-const addTask = () =>{
-  console.log('adding task...');
-  
-}
+  const addTask = () => {
+    console.log("adding task...");
+  };
 
   return (
     <div className="App">
       <header className="App-header">
         WEETASK
-        <Input />
+        <TaskForm></TaskForm>
         <TaskList></TaskList>
         <Button
           onClick={addTask}
