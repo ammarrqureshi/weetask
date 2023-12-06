@@ -29,7 +29,7 @@ export const TaskForm = () => {
       });
       setIsError(false);
     } else {
-      console.log("error occured!")
+      console.log("error occured!");
       setIsError(true);
     }
   };
@@ -47,13 +47,16 @@ export const TaskForm = () => {
     e.preventDefault();
     console.log(e.target.value);
     setInput((prev) => ({ ...prev, priority: e.target.value }));
-
   };
 
   return (
     <form onSubmit={formSubmitHandler}>
       <Input
-      style= {isError ? {borderColor: "red"}: {borderColor: ""}}
+        className={
+          isError
+            ? "border-rose-500 focus:border-rose-500 placeholder:text-rose-500"
+            : ""
+        }
         onChange={inputChangeHandler}
         label="Task Text"
         name="text"
@@ -61,8 +64,14 @@ export const TaskForm = () => {
         value={input.text}
       />
 
-      <select className="bg-slate-900 outline-none py-4 px-3 focus:border-slate-500 border-2 border-slate-700 rounded-md text-slate-300  " id="priority" value={input.priority} name="priority" onChange={selectChangeHandler}>
-      <option value="Not assigned" key="Not assigned">
+      <select
+        className="bg-slate-900 outline-none py-4 px-3 focus:border-slate-500 border-2 border-slate-700 rounded-md text-slate-300  "
+        id="priority"
+        value={input.priority}
+        name="priority"
+        onChange={selectChangeHandler}
+      >
+        <option value="Not assigned" key="Not assigned">
           Not Assigned
         </option>
         <option value="high" key="high">
@@ -75,7 +84,7 @@ export const TaskForm = () => {
           Low
         </option>
       </select>
-    
+
       <Button value="add">Add</Button>
     </form>
   );
