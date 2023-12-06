@@ -61,7 +61,7 @@ export const TaskForm = () => {
         value={input.text}
       />
 
-      <select id="priority" value={input.priority} name="priority" onChange={selectChangeHandler}>
+      <select className="bg-slate-900 outline-none py-4 px-3 focus:border-slate-500 border-2 border-slate-700 rounded-md text-slate-300  " id="priority" value={input.priority} name="priority" onChange={selectChangeHandler}>
       <option value="Not assigned" key="Not assigned">
           Not Assigned
         </option>
@@ -75,14 +75,7 @@ export const TaskForm = () => {
           Low
         </option>
       </select>
-      {/* <Input
-        onChange={inputChangeHandler}
-        label="Task Priority"
-        name="priority"
-        placeholder="priority"
-        value={input.priority}
-
-      /> */}
+    
       <Button value="add">Add</Button>
     </form>
   );
