@@ -23,9 +23,9 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
     });
   };
   const deleteTask = (id: number) => {
-    tasks.filter((task) => {
+    tasks.map((task) => {
       if (task.id === id) {
-       setTasks([...tasks].splice(indexOf(task),1))
+       setTasks(tasks.splice(tasks.indexOf(task),1))
       }
     });
   };
@@ -46,7 +46,4 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
     </TaskContext.Provider>
   );
 };
-function indexOf(task: TaskType): number {
-  throw new Error("Function not implemented.");
-}
 

@@ -4,12 +4,12 @@ import { useContext } from "react";
 import { TaskContextType } from "../../types/types.tasks";
 
 export const TaskList = () => {
-    const { tasks, checkTask } = useContext(TaskContext) as TaskContextType;
+    const { tasks, checkTask, deleteTask } = useContext(TaskContext) as TaskContextType;
   return (
 <div>
     
       {tasks.map((task) => (
-          <Task task={task} checkTask={checkTask} {...task}/>    
+          <Task task={task} checkTask={checkTask} deleteTask={deleteTask} {...task}/>    
       ))} 
     </div>
   );
