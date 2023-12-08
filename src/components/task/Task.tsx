@@ -19,14 +19,17 @@ export const assignPriority = (priority: any) => {
 type taskProps = {
   task: TaskType;
   checkTask: (id: number) => void;
+  deleteTask: (id:number)=>void;
 };
-export const Task: React.FC<taskProps> = ({ task, checkTask }, { ...rest }) => {
+export const Task: React.FC<taskProps> = ({ task, checkTask,deleteTask }, { ...rest }) => {
   const taskClickHandler = () => {
     checkTask(task.id);
-
+    
     console.log(task.isComplete);
     console.log(task.id);
   };
+
+
   return (
     <div
       onClick={taskClickHandler}
@@ -42,7 +45,7 @@ export const Task: React.FC<taskProps> = ({ task, checkTask }, { ...rest }) => {
       <a className={task.isComplete ? "line-through" : ""} href="#task">
         {task.text}
       </a>
-      <Button >Delete</Button>
+      <Button onClick={()=>deleteTask(task.id)}>Delete</Button>
     </div>
   );
 };
