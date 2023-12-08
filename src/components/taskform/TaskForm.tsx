@@ -54,7 +54,7 @@ export const TaskForm = () => {
       <Input
         className={
           isError
-            ? "border-rose-500 focus:border-rose-500 placeholder:text-rose-500"
+            ? "!border-rose-500 focus:!border-rose-500 placeholder:text-rose-500"
             : ""
         }
         onChange={inputChangeHandler}
