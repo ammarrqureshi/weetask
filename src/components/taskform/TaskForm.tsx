@@ -27,11 +27,10 @@ export const TaskForm = () => {
         priority: taskPriority.value,
       };
       addTask(newTask);
-      // setInput({
-      //   text: "",
-      //   priority: "Not assigned",
-      // });
+
       taskText.setInput("");
+      taskPriority.setSelect("Not assigned");
+
       setIsError(false);
     } else {
       console.log("error occured!");
