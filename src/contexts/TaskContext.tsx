@@ -10,7 +10,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [tasks, setTasks] = useState<TaskType[]>(Tasks);
   const checkTask = (id: number) => {
-    tasks.filter((task) => {
+    tasks.filter((task) => { 
       if (task.id === id) {
         if (task.isComplete === true) {
           task.isComplete = false;
@@ -25,7 +25,10 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   const deleteTask = (id: number) => {
     tasks.map((task) => {
       if (task.id === id) {
-       setTasks(tasks.splice(tasks.indexOf(task),1))
+        tasks.splice(tasks.indexOf(task), 1);
+        setTasks([...tasks]);
+        console.log(tasks);
+
       }
     });
   };
@@ -46,4 +49,3 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
     </TaskContext.Provider>
   );
 };
-
