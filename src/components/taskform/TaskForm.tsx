@@ -2,16 +2,16 @@ import { TaskContext } from "../../contexts/TaskContext";
 import { TaskContextType, TaskType } from "../../types/types.tasks";
 import { useFormInput, useFormSelect } from "../../utils/";
 import { Button, Input } from "../UI";
-import { useState, ChangeEvent, FormEvent, useContext } from "react";
+import { useState, FormEvent, useContext } from "react";
 
 export const TaskForm = () => {
   const taskText = useFormInput("");
   const taskPriority = useFormSelect("Not assigned");
 
-  const [input, setInput] = useState({
-    text: "",
-    priority: "Not assigned",
-  });
+  // const [input, setInput] = useState({
+  //   text: "",
+  //   priority: "Not assigned",
+  // });
   const { addTask } = useContext(TaskContext) as TaskContextType;
   const [isError, setIsError] = useState(false);
 
@@ -27,10 +27,11 @@ export const TaskForm = () => {
         priority: taskPriority.value,
       };
       addTask(newTask);
-      setInput({
-        text: "",
-        priority: "Not assigned",
-      });
+      // setInput({
+      //   text: "",
+      //   priority: "Not assigned",
+      // });
+      taskText.setInput("");
       setIsError(false);
     } else {
       console.log("error occured!");
