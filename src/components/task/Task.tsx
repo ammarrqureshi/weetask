@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TaskType } from "../../types/types.tasks";
 import { Button } from "../UI";
 import Icon from "../UI/Icon";
@@ -19,16 +20,16 @@ export const assignPriority = (priority: any) => {
 type taskProps = {
   task: TaskType;
   checkTask: (id: number) => void;
-  deleteTask: (id:number)=>void;
+  deleteTask: (id: number) => void;
 };
-export const Task: React.FC<taskProps> = ({ task, checkTask,deleteTask }, { ...rest }) => {
+export const Task: React.FC<taskProps> = (
+  { task, checkTask, deleteTask },
+  { ...rest }
+) => {
+  const [isEditing, setIsEditing] = useState(false);
   const taskClickHandler = () => {
     checkTask(task.id);
-    
-    console.log(task.isComplete);
-    console.log(task.id);
   };
-
 
   return (
     <div
@@ -45,7 +46,7 @@ export const Task: React.FC<taskProps> = ({ task, checkTask,deleteTask }, { ...r
       <a className={task.isComplete ? "line-through" : ""} href="#task">
         {task.text}
       </a>
-      <Button onClick={()=>deleteTask(task.id)}>Delete</Button>
+      <Button onClick={() => deleteTask(task.id)}>Delete</Button>
     </div>
   );
 };
