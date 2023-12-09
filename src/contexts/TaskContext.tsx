@@ -10,7 +10,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [tasks, setTasks] = useState<TaskType[]>(Tasks);
   const checkTask = (id: number) => {
-    tasks.filter((task) => { 
+    tasks.filter((task) => {
       if (task.id === id) {
         if (task.isComplete === true) {
           task.isComplete = false;
@@ -28,9 +28,11 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
         tasks.splice(tasks.indexOf(task), 1);
         setTasks([...tasks]);
         console.log(tasks);
-
       }
     });
+  };
+  const editTask = (id: number) => {
+    console.log(`editing ${id}`);
   };
   const addTask = (task: TaskType) => {
     const newTask: TaskType = {
@@ -44,7 +46,9 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
     setTasks([...tasks, newTask]);
   };
   return (
-    <TaskContext.Provider value={{ tasks, addTask, checkTask, deleteTask }}>
+    <TaskContext.Provider
+      value={{ tasks, addTask, checkTask, deleteTask, editTask }}
+    >
       {children}
     </TaskContext.Provider>
   );
