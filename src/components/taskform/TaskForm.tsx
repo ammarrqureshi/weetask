@@ -8,10 +8,6 @@ export const TaskForm = () => {
   const taskText = useFormInput("");
   const taskPriority = useFormSelect("Not assigned");
 
-  // const [input, setInput] = useState({
-  //   text: "",
-  //   priority: "Not assigned",
-  // });
   const { addTask } = useContext(TaskContext) as TaskContextType;
   const [isError, setIsError] = useState(false);
 
@@ -37,21 +33,6 @@ export const TaskForm = () => {
       setIsError(true);
     }
   };
-
-  // const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-  //   e.preventDefault();
-  //   const { name, value } = e.target;
-  //   console.log(name, value);
-  //   setInput((prev) => ({
-  //     ...prev,
-  //     [name]: value,
-  //   }));
-  // };
-  // const selectChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-  //   e.preventDefault();
-  //   console.log(e.target.value);
-  //   setInput((prev) => ({ ...prev, priority: e.target.value }));
-  // };
 
   return (
     <form onSubmit={formSubmitHandler}>

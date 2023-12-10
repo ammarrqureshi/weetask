@@ -5,9 +5,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        WEETASK
+        <h1 className=" text-slate-200">HEY DRAGONISH! I CAN'T SHARE MY WHATSAPP ON FIVERR. BECAUSE ITS NOT ALLOWED. KINDLY CONTACT ME HERE ON WHATSAPP , WE WILL DISCUSS PROJECT THERE : +923471443011</h1>
         <TaskProvider>
-          <TaskForm />
+          <TaskForm  />
           <TaskList></TaskList>
         </TaskProvider>
       </header>
