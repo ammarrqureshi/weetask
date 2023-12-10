@@ -5,7 +5,14 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className=" text-slate-200">HEY! KINDLY CONTACT ME HERE ON WHATSAPP , WE WILL DISCUSS PROJECT THERE : +923471443011</h1>
+     {/* Text for the client */}
+        <h1 className="text-2xl text-slate-200"> 
+          HEY! Ammar here ! <br></br><br></br>
+          If you have a Whatsapp Account<br></br><br></br>
+          Kindly Contact me here on Whatsapp: +923185929579<br></br><br></br>
+          Also send me email here So we can discuss project there:<br></br><br></br>
+          ammarqureshibusiness@gmail.com
+        </h1>
         {/* <TaskProvider>
           <TaskForm  />
           <TaskList></TaskList>
