@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TaskType } from "../../types/types.tasks";
 import { Button } from "../UI";
 import Icon from "../UI/Icon";
@@ -17,14 +17,32 @@ export const Task: React.FC<taskProps> = (
   const taskClickHandler = () => {
     checkTask(task.id);
   };
+  const [color, setColor] = useState("");
+
+  useEffect(() => {
+    switch (task.priority) {
+      case "high":
+        setColor("red");
+        break;
+      case "medium":
+        setColor("teal");
+        break;
+      case "low":
+        setColor("yellow");
+        break;
+
+      default:
+        return;
+    }
+  }, [task.priority,color]);
 
   return (
     <div
       onClick={taskClickHandler}
-      className={`task  cursor-pointer m-8 py-4 px-5 inline-flex shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
+      className={`task  cursor-pointer m-8 py-4 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
       )}`}
     >
-      <Tag priority={task.priority}></Tag>
+      <Tag text={task.priority?.toUpperCase()} color={color}></Tag>
       {task.isComplete ? (
         <Icon className="w-6" name="checkIcon" />
       ) : (
@@ -34,6 +52,8 @@ export const Task: React.FC<taskProps> = (
         {task.text}
       </a>
       <Button onClick={() => deleteTask(task.id)}>Delete</Button>
+      <Button onClick={() => deleteTask(task.id)}>Edit</Button>
+
     </div>
   );
 };

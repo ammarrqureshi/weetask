@@ -21,7 +21,22 @@ export const Tasks: TaskType[] = [
     text: "task no 3",
     status: "completed",
     isComplete: true,
-
+    created_at: new Date(),
+    priority: "medium",
+  },
+  {
+    id: 4,
+    text: "task no 2",
+    status: "pending",
+    isComplete: false,
+    created_at: new Date(),
+    priority: "high",
+  },
+  {
+    id: 5,
+    text: "task no 3",
+    status: "completed",
+    isComplete: true,
     created_at: new Date(),
     priority: "medium",
   },
