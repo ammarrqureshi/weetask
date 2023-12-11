@@ -1,20 +1,36 @@
 import { TaskContext } from "../../contexts/TaskContext";
 import { TaskContextType, TaskType } from "../../types/types.tasks";
-import { useFormInput, useFormSelect } from "../../utils/";
+import { useFormInput, useFormSelect, titleCase } from "../../utils/";
 import { Button, Input } from "../UI";
-import { useState, FormEvent, useContext } from "react";
+import { useState, FormEvent, useContext, useEffect } from "react";
 
-type FormProps={
-  type:string;
+type FormProps = {
+  type: string;
   taskId?: number;
-}
+};
 
-export const TaskForm = ({type,taskId=0}:FormProps) => {
+export const TaskForm = ({ type, taskId = 0 }: FormProps) => {
   const taskText = useFormInput("");
   const taskPriority = useFormSelect("Not assigned");
 
-  const { addTask , updateTask,tasks } = useContext(TaskContext) as TaskContextType;
+  const { addTask, updateTask, tasks } = useContext(
+    TaskContext
+  ) as TaskContextType;
   const [isError, setIsError] = useState(false);
+
+  useEffect(() => {
+    if (type === "edit") {
+      console.log(`editing ${taskId}`);
+
+      tasks.map((task) => {
+        if (task.id === taskId) {
+          taskText.setInput(task.text);
+          taskPriority.setSelect(task.priority);
+
+        }
+      });
+    }
+  }, [type]);
 
   const formSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
@@ -27,17 +43,12 @@ export const TaskForm = ({type,taskId=0}:FormProps) => {
         created_at: new Date(),
         priority: taskPriority.value,
       };
-      if(type==="add"){
+      if (type === "add") {
         addTask(newTask);
-        
       }
-      if(type==="edit"){
-        
+      if (type === "edit") {
         updateTask(taskId);
       }
-
-
-   
 
       taskText.setInput("");
       taskPriority.setSelect("Not assigned");
@@ -83,7 +94,7 @@ export const TaskForm = ({type,taskId=0}:FormProps) => {
         </option>
       </select>
 
-      <Button value="add">Add</Button>
+      <Button value={type}>{titleCase(type)} Task</Button>
     </form>
   );
 };
