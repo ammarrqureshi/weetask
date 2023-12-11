@@ -31,7 +31,8 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
       }
     });
   };
-  const editTask = (id: number) => {
+  const updateTask = (id: number) => {
+    
     console.log(`editing ${id}`);
   };
   const addTask = (task: TaskType) => {
@@ -47,7 +48,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   };
   return (
     <TaskContext.Provider
-      value={{ tasks, addTask, checkTask, deleteTask, editTask }}
+      value={{ tasks, addTask, checkTask, deleteTask, updateTask }}
     >
       {children}
     </TaskContext.Provider>

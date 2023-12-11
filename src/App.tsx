@@ -14,7 +14,7 @@ const App: React.FC = () => {
           ammarqureshibusiness@gmail.com
         </h1> */}
         <TaskProvider>
-          <TaskForm  />
+          <TaskForm  type="add"/>
           <TaskList></TaskList>
         </TaskProvider>
       </header>

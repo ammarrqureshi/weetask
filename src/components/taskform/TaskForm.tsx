@@ -4,11 +4,16 @@ import { useFormInput, useFormSelect } from "../../utils/";
 import { Button, Input } from "../UI";
 import { useState, FormEvent, useContext } from "react";
 
-export const TaskForm = () => {
+type FormProps={
+  type:string;
+  taskId?: number;
+}
+
+export const TaskForm = ({type,taskId=0}:FormProps) => {
   const taskText = useFormInput("");
   const taskPriority = useFormSelect("Not assigned");
 
-  const { addTask } = useContext(TaskContext) as TaskContextType;
+  const { addTask , updateTask,tasks } = useContext(TaskContext) as TaskContextType;
   const [isError, setIsError] = useState(false);
 
   const formSubmitHandler = (e: FormEvent) => {
@@ -22,7 +27,17 @@ export const TaskForm = () => {
         created_at: new Date(),
         priority: taskPriority.value,
       };
-      addTask(newTask);
+      if(type==="add"){
+        addTask(newTask);
+        
+      }
+      if(type==="edit"){
+        
+        updateTask(taskId);
+      }
+
+
+   
 
       taskText.setInput("");
       taskPriority.setSelect("Not assigned");

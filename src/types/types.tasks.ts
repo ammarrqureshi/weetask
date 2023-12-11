@@ -13,5 +13,5 @@ export interface TaskContextType {
   // updateTask: (id: number) => void;
   checkTask: (id:number) => void;
   deleteTask: (id:number) => void;
-  editTask: (id:number)=>void;
+  updateTask: (id:number)=>void;
 }

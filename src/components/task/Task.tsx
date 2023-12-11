@@ -33,21 +33,21 @@ export const Task: React.FC<taskProps> = (
   //   }
   // };
 
-  const [color, setColor] = useState("gray");
+  const [color, setColor] = useState("green");
   useEffect(() => {
     switch (task.priority) {
       case "high":
-        setColor("red");
+        setColor("teal");
         break;
       case "medium":
         setColor("teal");
         break;
       case "low":
-        setColor("yellow");
+        setColor("orange");
         break;
 
       default:
-        setColor("gray");
+        setColor("green");
     }
   }, [task.priority]);
 
@@ -71,7 +71,7 @@ export const Task: React.FC<taskProps> = (
       <Tag color={color}>{task.priority}</Tag>
       <Button onClick={() => deleteTask(task.id)}>Delete</Button>
       <Button onClick={() => setIsEditing(true)}>Edit</Button>
-      {/* {isEditing ? <TaskForm></TaskForm> : null} */}
+      {isEditing ? <TaskForm type="edit" taskId={task.id}></TaskForm> : null}
     </div>
   );
 };

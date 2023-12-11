@@ -1,6 +1,13 @@
 import { TaskType } from "./types/types.tasks";
 export const Tasks: TaskType[] = [
   {
+    id: 0,
+    text: "task no 0",
+    status: "progress",
+    isComplete: false,
+    created_at: new Date(),
+    priority: "high",
+  }, {
     id: 1,
     text: "task no 1",
     status: "progress",
