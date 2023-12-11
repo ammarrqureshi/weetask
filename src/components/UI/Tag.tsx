@@ -1,9 +1,16 @@
-export const Tag = ({ text, color }: any) => {
+import React, { ReactNode } from "react";
+
+type TagProps = {
+  children: ReactNode;
+  color: string;
+};
+
+export const Tag: React.FC<TagProps> = ({ children, color }) => {
   return (
-    <div        
-      className={`border text-${color}-500 border-${color}-500  rounded-md p-1 `}
+    <div
+      className={`border  border-${color}-500 rounded-md text-${color}-500 p-1`}
     >
-      {text}
+      {children}
     </div>
   );
 };

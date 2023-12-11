@@ -1,7 +1,7 @@
 export type TaskType = {
   id: number;
   text: string;
-  priority?: "high" | "medium" | "low" | string | undefined;
+  priority: "high" | "medium" | "low" | string;
   status?: "progress" | "pending" | "completed";
   isComplete: boolean;
   created_at: Date;
