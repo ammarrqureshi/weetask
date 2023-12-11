@@ -20,19 +20,28 @@ export const Task: React.FC<taskProps> = (
   const [color, setColor] = useState("");
 
   useEffect(() => {
-    switch (task.priority) {
-      case "high":
-        setColor("red");
-        break;
-      case "medium":
-        setColor("teal");
-        break;
-      case "low":
-        setColor("yellow");
-        break;
+    // switch (task.priority) {
+    //   case "high":
+    //     setColor("red");
+    //     break;
+    //   case "medium":
+    //     setColor("teal");
+    //     break;
+    //   case "low":
+    //     setColor("yellow");
+    //     break;
 
-      default:
-        return;
+    //   default:
+    //     return;
+    // }
+    if(task.priority==="high"){
+      setColor("red");
+    }
+    if(task.priority==="low"){
+      setColor("teal");
+    }
+    if(task.priority==="medium"){
+      setColor("yellow");
     }
   }, [task.priority,color]);
 
@@ -42,7 +51,7 @@ export const Task: React.FC<taskProps> = (
       className={`task  cursor-pointer m-8 py-4 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
       )}`}
     >
-      <Tag text={task.priority?.toUpperCase()} color={color}></Tag>
+      <Tag text={task.priority} color={color}></Tag>
       {task.isComplete ? (
         <Icon className="w-6" name="checkIcon" />
       ) : (

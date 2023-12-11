@@ -4,7 +4,7 @@ type MyIconProps = {
   width?: string;
   height?: string;
   color?: string;
-  onClick?: ()=>void;
+  onClick?: () => void;
 };
 
 const Icon = (props: MyIconProps) => {
@@ -44,7 +44,6 @@ const Icon = (props: MyIconProps) => {
         </svg>
       );
 
-      break;
     case "circleIcon":
       return (
         <svg
@@ -58,7 +57,7 @@ const Icon = (props: MyIconProps) => {
           style={{ fill: "#f01212" }}
         >
           <g
-            fill="#c48989"
+            fill="#ffffff"
             fill-rule="nonzero"
             stroke="none"
             stroke-width="1"

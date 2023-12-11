@@ -9,7 +9,7 @@ export const TaskList = () => {
 <div>
     
       {tasks.map((task) => (
-          <Task task={task} checkTask={checkTask} deleteTask={deleteTask} {...task}/>    
+          <Task key={task.id} task={task} checkTask={checkTask} deleteTask={deleteTask} {...task}/>    
       ))} 
     </div>
   );
