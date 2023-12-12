@@ -38,6 +38,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   ) => {
     tasks.map((task) => {
       if (task.id === id) {
+        task.isComplete = false;
         task.text = updatedText;
         task.priority = updatedPriority;
         task.updated_at = new Date();
