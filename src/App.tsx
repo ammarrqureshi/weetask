@@ -19,7 +19,7 @@ const App = () => {
           Also send me email here So we can discuss project there:<br></br><br></br>
           ammarqureshibusiness@gmail.com
         </h1> */}
-        <Button onClick={() => setIsEditing(true)}>Add Task</Button>
+        <Button Type="primary" onClick={() => setIsEditing(true)}>Add Task</Button>
         <TaskProvider>
                  {isEditing ? <AddForm />: null}
 

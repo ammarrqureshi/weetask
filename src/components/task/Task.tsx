@@ -62,8 +62,8 @@ export const Task: React.FC<taskProps> = (
 
       <p>{getDate(task.updated_at)}</p>
 
-      <Button onClick={() => deleteTask(task.id)}>Delete</Button>
-      <Button onClick={() => setIsEditing(true)}>Edit</Button>
+      <Button Type="primary" onClick={() => deleteTask(task.id)}>Delete</Button>
+      <Button Type="secondary" onClick={() => setIsEditing(true)}>Edit</Button>
       {isEditing ? <EditForm taskId={task.id}></EditForm> : null}
     </div>
   );

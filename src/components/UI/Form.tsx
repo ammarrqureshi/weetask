@@ -21,9 +21,9 @@ export const Form = ({
 
   const formSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
-    onSubmit(taskValue.value, priorityValue.value);
     if (taskValue.value.length > 0 && priorityValue.value.length > 0) {
       console.log("form submitted successfully!");
+      onSubmit(taskValue.value, priorityValue.value);
 
       setIsError(false);
       setIsEditing(false);
@@ -34,40 +34,57 @@ export const Form = ({
   };
 
   return (
-    <form onSubmit={formSubmitHandler}>
-      <Input
-        className={
-          isError
-            ? "!border-rose-500 focus:!border-rose-500 placeholder:text-rose-500"
-            : ""
-        }
-        {...taskValue}
-        label="Task Text"
-        name="text"
-        placeholder="Enter your task"
-      />
-
-      <select
-        className="bg-slate-900 outline-none py-4 px-3 focus:border-slate-500 border-2 border-slate-700 rounded-md text-slate-300  "
-        id="priority"
-        name="priority"
-        {...priorityValue}
+    <div className="w-screen z-50 flex justify-center items-center backdrop-blur h-screen bg-slate-800/10 fixed top-0 left-0 right-0 bottom-0">
+      <form
+        className={`m-8 py-4 px-5 flex flex-wrap inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-900  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
+      )}`}
+        onSubmit={formSubmitHandler}
       >
-        <option value="Not assigned" key="Not assigned">
-          Not Assigned
-        </option>
-        <option value="high" key="high">
-          High
-        </option>
-        <option value="medium" key="medium">
-          Medium
-        </option>
-        <option value="low" key="low">
-          Low
-        </option>
-      </select>
+        <Input
+          className={
+            isError
+              ? "!border-rose-500 focus:!border-rose-500 placeholder:text-rose-500"
+              : ""
+          }
+          {...taskValue}
+          label="Task Text"
+          name="text"
+          placeholder="Enter your task"
+        />
 
-      <Button value={type}>{titleCase(type)} Task</Button>
-    </form>
+        <select
+          className="bg-slate-800 outline-none py-4 px-3 focus:border-slate-500 border-2 border-slate-700 rounded-md text-slate-300  "
+          id="priority"
+          name="priority"
+          {...priorityValue}
+        >
+          <option value="Not assigned" key="Not assigned">
+            Not Assigned
+          </option>
+          <option value="high" key="high">
+            High
+          </option>
+          <option value="medium" key="medium">
+            Medium
+          </option>
+          <option value="low" key="low">
+            Low
+          </option>
+        </select>
+        <div className="btn-wrapper ">
+          <Button
+            Type="secondary"
+            onClick={() => {
+              setIsEditing(false);
+            }}
+          >
+            Cancel
+          </Button>
+          <Button Type="primary" value={type}>
+            {titleCase(type)} Task
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 };
