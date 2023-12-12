@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export type TaskType = {
   id: number;
   text: string;
@@ -11,7 +13,16 @@ export interface TaskContextType {
   tasks: TaskType[];
   addTask: (task: TaskType) => void;
   // updateTask: (id: number) => void;
-  checkTask: (id:number) => void;
-  deleteTask: (id:number) => void;
-  updateTask: (id:number)=>void;
+  checkTask: (id: number) => void;
+  deleteTask: (id: number) => void;
+  updateTask: (
+    id: number,
+    updatedText: string,
+    updatedPriority: string
+  ) => void;
+}
+
+export interface AppContextType {
+  isEditing: boolean;
+  setIsEditing: Dispatch<SetStateAction<boolean>>;
 }

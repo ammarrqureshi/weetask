@@ -31,8 +31,19 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
       }
     });
   };
-  const updateTask = (id: number) => {
-    
+  const updateTask = (
+    id: number,
+    updatedText: string,
+    updatedPriority: string
+  ) => {
+    tasks.map((task) => {
+      if (task.id === id) {
+        task.text = updatedText;
+        task.priority = updatedPriority;
+        setTasks([...tasks]);
+      }
+    });
+
     console.log(`editing ${id}`);
   };
   const addTask = (task: TaskType) => {

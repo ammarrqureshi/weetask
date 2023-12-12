@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import { TaskType } from "../../types/types.tasks";
+import { useContext, useEffect, useState } from "react";
+import { AppContextType, TaskType } from "../../types/types.tasks";
 import { Button } from "../UI";
 import Icon from "../UI/Icon";
 import { Tag } from "../UI/Tag";
 import { TaskForm } from "../taskform/TaskForm";
+import { AppContext } from "../../contexts/AppContext";
 
 type taskProps = {
   task: TaskType;
@@ -15,23 +16,10 @@ export const Task: React.FC<taskProps> = (
   { ...rest }
 ) => {
   const [isEditing, setIsEditing] = useState(false);
+// const {isEditing, setIsEditing} = useContext(AppContext) as AppContextType;
   const taskClickHandler = () => {
     checkTask(task.id);
   };
-
-  // const getColor = (value: string) => {
-  //   switch (value) {
-  //     case "high":
-  //       return "red";
-  //     case "medium":
-  //       return "teal";
-  //     case "low":
-  //       return "yellow";
-
-  //     default:
-  //       return "gray";
-  //   }
-  // };
 
   const [color, setColor] = useState("green");
   useEffect(() => {
@@ -71,7 +59,7 @@ export const Task: React.FC<taskProps> = (
       <Tag color={color}>{task.priority}</Tag>
       <Button onClick={() => deleteTask(task.id)}>Delete</Button>
       <Button onClick={() => setIsEditing(true)}>Edit</Button>
-      {isEditing ? <TaskForm type="edit" taskId={task.id}></TaskForm> : null}
+      {isEditing ? <TaskForm type="update" taskId={task.id}></TaskForm> : null}
     </div>
   );
 };
