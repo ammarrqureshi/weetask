@@ -18,6 +18,7 @@ export const AddForm = () => {
       isComplete: false,
       created_at: new Date(),
       priority: priorityValue,
+      updated_at: new Date()
     };
     addTask(newTask);
   };

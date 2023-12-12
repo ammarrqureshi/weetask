@@ -40,6 +40,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
       if (task.id === id) {
         task.text = updatedText;
         task.priority = updatedPriority;
+        task.updated_at = new Date();
         setTasks([...tasks]);
       }
     });
@@ -54,6 +55,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
       isComplete: false,
       created_at: new Date(),
       priority: task.priority,
+      updated_at: new Date(),
     };
     setTasks([...tasks, newTask]);
   };

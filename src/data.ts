@@ -7,6 +7,7 @@ export const Tasks: TaskType[] = [
     isComplete: false,
     created_at: new Date(),
     priority: "high",
+    updated_at: new Date()
   }, {
     id: 1,
     text: "task no 1",
@@ -14,6 +15,8 @@ export const Tasks: TaskType[] = [
     isComplete: false,
     created_at: new Date(),
     priority: "high",
+    updated_at: new Date()
+
   },
   {
     id: 2,
@@ -22,6 +25,8 @@ export const Tasks: TaskType[] = [
     isComplete: false,
     created_at: new Date(),
     priority: "low",
+    updated_at: new Date()
+
   },
   {
     id: 3,
@@ -30,6 +35,8 @@ export const Tasks: TaskType[] = [
     isComplete: true,
     created_at: new Date(),
     priority: "medium",
+    updated_at: new Date()
+
   },
   {
     id: 4,
@@ -38,13 +45,7 @@ export const Tasks: TaskType[] = [
     isComplete: false,
     created_at: new Date(),
     priority: "high",
+    updated_at: new Date()
   },
-  {
-    id: 5,
-    text: "task no 3",
-    status: "completed",
-    isComplete: true,
-    created_at: new Date(),
-    priority: "medium",
-  },
+ 
 ];

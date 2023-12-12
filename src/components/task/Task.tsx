@@ -5,6 +5,7 @@ import Icon from "../UI/Icon";
 import { Tag } from "../UI/Tag";
 import { EditForm } from "../taskform/EditForm";
 import { FormContext } from "../../contexts/FormContext";
+import { getDate } from "../../utils";
 
 type taskProps = {
   task: TaskType;
@@ -22,23 +23,23 @@ export const Task: React.FC<taskProps> = (
     checkTask(task.id);
   };
 
-  const [color, setColor] = useState("green");
-  useEffect(() => {
-    switch (task.priority) {
-      case "high":
-        setColor("teal");
-        break;
-      case "medium":
-        setColor("teal");
-        break;
-      case "low":
-        setColor("orange");
-        break;
+  // const [color, setColor] = useState("green");
+  // useEffect(() => {
+  //   switch (task.priority) {
+  //     case "high":
+  //       setColor("teal");
+  //       break;
+  //     case "medium":
+  //       setColor("teal");
+  //       break;
+  //     case "low":
+  //       setColor("orange");
+  //       break;
 
-      default:
-        setColor("green");
-    }
-  }, [task.priority]);
+  //     default:
+  //       setColor("green");
+  //   }
+  // }, [task.priority]);
 
   return (
     <div
@@ -57,7 +58,10 @@ export const Task: React.FC<taskProps> = (
       >
         {task.text}
       </a>
-      <Tag color={color}>{task.priority}</Tag>
+      <Tag color="red">{task.priority}</Tag>
+
+      <p>{getDate(task.updated_at)}</p>
+
       <Button onClick={() => deleteTask(task.id)}>Delete</Button>
       <Button onClick={() => setIsEditing(true)}>Edit</Button>
       {isEditing ? <EditForm taskId={task.id}></EditForm> : null}

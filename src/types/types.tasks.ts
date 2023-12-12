@@ -7,6 +7,7 @@ export type TaskType = {
   status?: "progress" | "pending" | "completed";
   isComplete: boolean;
   created_at: Date;
+  updated_at: Date;
 };
 
 export interface TaskContextType {
@@ -20,11 +21,6 @@ export interface TaskContextType {
     updatedText: string,
     updatedPriority: string
   ) => void;
-}
-
-export interface AppContextType {
-  isEditing: boolean;
-  setIsEditing: Dispatch<SetStateAction<boolean>>;
 }
 
 export interface FormContextType {

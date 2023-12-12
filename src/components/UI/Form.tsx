@@ -3,6 +3,7 @@ import { Input, Button } from "./index";
 import { titleCase } from "../../utils";
 import { FormContextType } from "../../types/types.tasks";
 import { FormContext } from "../../contexts/FormContext";
+
 type FormProps = {
   onSubmit: (task: string, priority: string) => void;
   type: string;
@@ -25,9 +26,6 @@ export const Form = ({
       console.log("form submitted successfully!");
 
       setIsError(false);
-
-      taskValue.setInput("");
-      priorityValue.setSelect("Not assigned");
       setIsEditing(false);
     } else {
       console.log("error occured!");
