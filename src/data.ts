@@ -33,9 +33,9 @@ export const Tasks: TaskType[] = [
     text: "task no 3",
     status: "completed",
     isComplete: true,
-    created_at: new Date(),
+    created_at: new Date("2021-03-25"),
     priority: "medium",
-    updated_at: new Date()
+    updated_at: new Date("2021-03-25")
 
   },
   {
@@ -43,9 +43,9 @@ export const Tasks: TaskType[] = [
     text: "task no 2",
     status: "pending",
     isComplete: false,
-    created_at: new Date(),
+    created_at: new Date("2022-04-19"),
     priority: "high",
-    updated_at: new Date()
+    updated_at:new Date("2022-04-19")
   },
  
 ];
