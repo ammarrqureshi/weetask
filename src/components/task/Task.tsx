@@ -40,6 +40,22 @@ export const Task: React.FC<taskProps> = (
   //       setColor("green");
   //   }
   // }, [task.priority]);
+  const getColor = () => {
+    
+    switch (task.priority) {
+      case "high":
+        return "text-rose-500 border-rose-500";
+      case "medium":
+        return "text-teal-300 border-teal-300 ";
+        case "low":
+          return "text-yellow-300 border-yellow-300 ";
+    
+
+      default:
+        return ""
+    }
+  };
+
 
   return (
     <div
@@ -58,7 +74,7 @@ export const Task: React.FC<taskProps> = (
       >
         {task.text}
       </a>
-      <Tag color="red">{task.priority}</Tag>
+      <Tag className={getColor()}>{task.priority}</Tag>
 
       <p>{getDate(task.updated_at)}</p>
 
