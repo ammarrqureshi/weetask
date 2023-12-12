@@ -52,7 +52,7 @@ export const Task: React.FC<taskProps> = (
     
 
       default:
-        return ""
+        return "text-gray-600 border-gray-600 "
     }
   };
 
@@ -74,7 +74,7 @@ export const Task: React.FC<taskProps> = (
       >
         {task.text}
       </a>
-      <Tag className={getColor()}>{task.priority}</Tag>
+      <Tag colorClass={getColor()}>{task.priority}</Tag>
 
       <p>{getDate(task.updated_at)}</p>
 

@@ -2,13 +2,13 @@ import React, { ReactNode } from "react";
 
 type TagProps = {
   children: ReactNode;
-  className:string
+  colorClass:string
 };
 
-export const Tag: React.FC<TagProps> = ({ children, className} ) => {
+export const Tag: React.FC<TagProps> = ({ children,colorClass} ) => {
   return (
     <div
-      className={`border ${className}  rounded-full px-2`}
+      className={`border ${colorClass}  rounded-full px-2`}
     >
       {children}
     </div>
