@@ -26,3 +26,8 @@ export interface AppContextType {
   isEditing: boolean;
   setIsEditing: Dispatch<SetStateAction<boolean>>;
 }
+
+export interface FormContextType {
+  isEditing: boolean;
+  setIsEditing: Dispatch<SetStateAction<boolean>>;
+}

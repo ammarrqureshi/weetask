@@ -1,13 +1,13 @@
-import { useContext, useState } from "react";
-import { TaskForm } from "./components/taskform/TaskForm";
+import { useContext, } from "react";
+import { AddForm } from "./components/taskform/AddForm";
 import { TaskList } from "./components/tasklist/TaskList";
 import { TaskProvider } from "./contexts/TaskContext";
 import { Button } from "./components/UI";
-import { AppContext } from "./contexts/AppContext";
-import { AppContextType } from "./types/types.tasks";
-const App: React.FC = () => {
-  const {isEditing, setIsEditing}=useContext(AppContext) as AppContextType
-  
+import {  FormContextType } from "./types/types.tasks";
+import { FormContext } from "./contexts/FormContext";
+const App = () => {
+  const { isEditing, setIsEditing } = useContext(FormContext) as FormContextType;
+
   return (
     <div className="App">
       <header className="App-header">
@@ -19,9 +19,10 @@ const App: React.FC = () => {
           Also send me email here So we can discuss project there:<br></br><br></br>
           ammarqureshibusiness@gmail.com
         </h1> */}
-        <Button onClick={()=> setIsEditing(true)}>Add Task</Button>
+        <Button onClick={() => setIsEditing(true)}>Add Task</Button>
         <TaskProvider>
-          {isEditing ? <TaskForm type="add" /> : null} 
+                 {isEditing ? <AddForm />: null}
+
           <TaskList></TaskList>
         </TaskProvider>
       </header>

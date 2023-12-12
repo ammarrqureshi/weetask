@@ -1,27 +1,34 @@
-import React, { FormEventHandler, useState } from "react";
+import { FormEvent, useContext, useState } from "react";
 import { Input, Button } from "./index";
-import { useFormInput, useFormSelect, titleCase } from "../../utils";
+import { titleCase } from "../../utils";
+import { FormContextType } from "../../types/types.tasks";
+import { FormContext } from "../../contexts/FormContext";
 type FormProps = {
-//   onSubmit: () => void;
+  onSubmit: (task: string, priority: string) => void;
   type: string;
-  //   isError: boolean;
+  [key: string]: any;
 };
 
-export const Form = ({ type }: FormProps) => {
-  const taskText = useFormInput("");
-  const taskPriority = useFormSelect("Not assigned");
+export const Form = ({
+  onSubmit,
+  type,
+  taskValue,
+  priorityValue,
+}: FormProps) => {
+  const { setIsEditing } = useContext(FormContext) as FormContextType;
   const [isError, setIsError] = useState(false);
 
-  const formSubmitHandler = (e: FormEventHandler<HTMLFormElement>) => {
+  const formSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
-
-    if (taskText.value.length > 0 && taskPriority.value.length > 0) {
+    onSubmit(taskValue.value, priorityValue.value);
+    if (taskValue.value.length > 0 && priorityValue.value.length > 0) {
       console.log("form submitted successfully!");
 
       setIsError(false);
-    
-      taskText.setInput("");
-      taskPriority.setSelect("Not assigned");
+
+      taskValue.setInput("");
+      priorityValue.setSelect("Not assigned");
+      setIsEditing(false);
     } else {
       console.log("error occured!");
       setIsError(true);
@@ -36,7 +43,7 @@ export const Form = ({ type }: FormProps) => {
             ? "!border-rose-500 focus:!border-rose-500 placeholder:text-rose-500"
             : ""
         }
-        {...taskText}
+        {...taskValue}
         label="Task Text"
         name="text"
         placeholder="Enter your task"
@@ -46,7 +53,7 @@ export const Form = ({ type }: FormProps) => {
         className="bg-slate-900 outline-none py-4 px-3 focus:border-slate-500 border-2 border-slate-700 rounded-md text-slate-300  "
         id="priority"
         name="priority"
-        {...taskPriority}
+        {...priorityValue}
       >
         <option value="Not assigned" key="Not assigned">
           Not Assigned

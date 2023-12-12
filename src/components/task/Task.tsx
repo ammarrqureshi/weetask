@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { AppContextType, TaskType } from "../../types/types.tasks";
+import { FormContextType, TaskType } from "../../types/types.tasks";
 import { Button } from "../UI";
 import Icon from "../UI/Icon";
 import { Tag } from "../UI/Tag";
-import { TaskForm } from "../taskform/TaskForm";
-import { AppContext } from "../../contexts/AppContext";
+import { EditForm } from "../taskform/EditForm";
+import { FormContext } from "../../contexts/FormContext";
 
 type taskProps = {
   task: TaskType;
@@ -15,8 +15,9 @@ export const Task: React.FC<taskProps> = (
   { task, checkTask, deleteTask },
   { ...rest }
 ) => {
-  const [isEditing, setIsEditing] = useState(false);
-// const {isEditing, setIsEditing} = useContext(AppContext) as AppContextType;
+  const { isEditing, setIsEditing } = useContext(
+    FormContext
+  ) as FormContextType;
   const taskClickHandler = () => {
     checkTask(task.id);
   };
@@ -59,7 +60,7 @@ export const Task: React.FC<taskProps> = (
       <Tag color={color}>{task.priority}</Tag>
       <Button onClick={() => deleteTask(task.id)}>Delete</Button>
       <Button onClick={() => setIsEditing(true)}>Edit</Button>
-      {isEditing ? <TaskForm type="update" taskId={task.id}></TaskForm> : null}
+      {isEditing ? <EditForm taskId={task.id}></EditForm> : null}
     </div>
   );
 };
