@@ -22,7 +22,7 @@ export const Button = ({ children, Type, className, ...rest }: ButtonType) => {
 
   return (
     <button
-      className={`${className} m-2 rounded-full border-slate-600 bg-${getType()}-800 text-slate-300 px-4 py-2 drop-shadow-xl hover:bg-${getType()}-700 disabled:bg-gray-800 disabled:text-gray-900`}
+      className={`${className} rounded-full border-slate-600 bg-${getType()}-800 text-slate-300 px-4 py-2 drop-shadow-xl hover:bg-${getType()}-700 disabled:bg-gray-800 disabled:text-gray-900`}
       {...rest}
     >
       {children}

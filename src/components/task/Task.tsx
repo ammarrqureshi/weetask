@@ -38,30 +38,46 @@ export const Task: React.FC<taskProps> = (
 
   return (
     <div
-      className={` duration-500 w-full py-1 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
+      className={`box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
       )}`}
     >
-      <div className="cursor-pointer flex justify-start items-center gap-3">
+      <div
+        id="task-check-block"
+        className="cursor-pointer self-start flex  justify-start items-start gap-3"
+      >
         {task.isComplete ? (
-          <Icon onClick={taskClickHandler} className="w-6 " name="checkIcon" />
+          <Icon
+            onClick={taskClickHandler}
+            className="w-6 h-6 min-w-min "
+            name="checkIcon"
+          />
         ) : (
-          <Icon onClick={taskClickHandler} name="circleIcon" className="w-6" />
+          <Icon
+            onClick={taskClickHandler}
+            name="circleIcon"
+            className="w-6 h-6 min-w-min"
+          />
         )}
-        <a
-          onClick={taskClickHandler}
-          className={task.isComplete ? "line-through" : ""}
-          href="#task"
+        <div
+          id="task-date-block"
+          className="flex gap-2 flex-col justify-start items-start"
         >
-          {task.text}
-        </a>
+          <a
+            onClick={taskClickHandler}
+            className={`leading-none  ${
+              task.isComplete ? "line-through " : ""
+            }`}
+            href="#task"
+          >
+            {task.text}
+          </a>
+          <p className="text-xs text-gray-500">{getDate(task.updated_at)}</p>
+        </div>
       </div>
 
-      <Tag colorClass={getColor()}>{task.priority}</Tag>
+      <div id="task-actions-block" className="task-actions  flex gap-3 justify-center items-center ">
+        <Tag colorClass={getColor()}>{task.priority}</Tag>
 
-    
-
-      <div className="task-actions flex justify-center items-center ">
-      <p>{getDate(task.updated_at)}</p>
         <Button Type="danger" onClick={() => deleteTask(task.id)}>
           Delete
         </Button>
