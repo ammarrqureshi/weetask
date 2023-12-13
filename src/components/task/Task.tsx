@@ -77,24 +77,38 @@ export const Task: React.FC<taskProps> = (
       </div>
 
       <div
-        id="task-actions-block"
-        className="task-actions  flex gap-3 justify-center items-center "
+        id="task-right-block"
+        className="flex justify-center items-center gap-6"
       >
-        <Tag colorClass={getColor()}>{task.priority}</Tag>
-        <Button Type="icon" onClick={() => setIsEditing(true)}>
-          <IconWrapper>
-            <Icon name="pencilIcon" />
-          </IconWrapper>
-        </Button>
+        <Tag className="" colorClass={getColor()}>
+          {task.priority}
+        </Tag>
+        <div
+          id="task-actions-block"
+          className="task-actions  flex gap-2 justify-center items-center "
+        >
+          <Button Type="icon" onClick={() => setIsEditing(true)}>
+            <IconWrapper>
+              {" "}
+              <Icon name="pencilIcon" />
+            </IconWrapper>
+          </Button>
 
-        <Button Type="icon" onClick={() => deleteTask(task.id)}>
+          <Button Type="icon" onClick={() => deleteTask(task.id)}>
+            <IconWrapper>
+              {" "}
+              <Icon onClick={taskClickHandler} name="deleteIcon" />
+            </IconWrapper>{" "}
+          </Button>
           <IconWrapper>
-            <Icon onClick={taskClickHandler}  name="deleteIcon" />{" "}
+            {" "}
+            <Icon
+              className="cursor-move"
+              onClick={taskClickHandler}
+              name="gripIcon"
+            />
           </IconWrapper>
-        </Button>
-        <IconWrapper>
-        <Icon onClick={taskClickHandler} name="gripIcon" /></IconWrapper>
-
+        </div>
       </div>
 
       {isEditing ? <EditForm taskId={task.id}></EditForm> : null}
