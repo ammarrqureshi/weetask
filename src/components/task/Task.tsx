@@ -25,11 +25,11 @@ export const Task: React.FC<taskProps> = (
   const getColor = () => {
     switch (task.priority) {
       case "high":
-        return "border-red-400 text-red-400";
+        return "border-red-400 text-red-400 bg-red-700/20";
       case "medium":
-        return "border-teal-400 text-teal-400";
+        return "border-teal-400 text-teal-400  bg-teal-700/20";
       case "low":
-        return "border-yellow-400 text-yellow-400";
+        return "border-yellow-400 text-yellow-400  bg-yellow-700/20";
 
       default:
         return "border-gray-400 text-gray-400";
@@ -38,7 +38,7 @@ export const Task: React.FC<taskProps> = (
 
   return (
     <div
-      className={` duration-500  m-8 py-4 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
+      className={` duration-500 w-full py-1 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
       )}`}
     >
       <div className="cursor-pointer flex justify-start items-center gap-3">
@@ -58,14 +58,18 @@ export const Task: React.FC<taskProps> = (
 
       <Tag colorClass={getColor()}>{task.priority}</Tag>
 
-      <p>{getDate(task.updated_at)}</p>
+    
 
-      <Button Type="danger" onClick={() => deleteTask(task.id)}>
-        Delete
-      </Button>
-      <Button Type="secondary" onClick={() => setIsEditing(true)}>
-        Edit
-      </Button>
+      <div className="task-actions flex justify-center items-center ">
+      <p>{getDate(task.updated_at)}</p>
+        <Button Type="danger" onClick={() => deleteTask(task.id)}>
+          Delete
+        </Button>
+        <Button Type="secondary" onClick={() => setIsEditing(true)}>
+          Edit
+        </Button>
+      </div>
+
       {isEditing ? <EditForm taskId={task.id}></EditForm> : null}
     </div>
   );

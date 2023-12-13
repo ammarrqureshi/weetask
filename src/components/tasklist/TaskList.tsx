@@ -7,7 +7,7 @@ import { FormProvider } from "../../contexts/FormContext";
 export const TaskList = () => {
     const { tasks, checkTask, deleteTask } = useContext(TaskContext) as TaskContextType;
   return (
-<div>
+<div className="max-w-lg flex flex-col gap-4 justify-center items-center flex-wrap ">
     
       {tasks.map((task) => (
         <FormProvider>   <Task key={task.id} task={task} checkTask={checkTask} deleteTask={deleteTask} {...task}/>   </FormProvider>  
