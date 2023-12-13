@@ -1,7 +1,7 @@
 import { Task } from "../task/Task";
 import { TaskContext } from "../../contexts/TaskContext";
 import { useContext, useState } from "react";
-import { TaskContextType, TaskType } from "../../types/types.tasks";
+import { TaskContextType } from "../../types/types.tasks";
 import { DragEvent } from "react";
 
 import { FormProvider } from "../../contexts/FormContext";
@@ -9,12 +9,12 @@ export const TaskList = () => {
   const [dragItemIndex, setDragItemIndex] = useState<number>(0);
   const [dragOverItemIndex, setDragOverItemIndex] = useState<number>(0);
 
-  const handleDragStart = (index: number) => {
+  const handleDragStart = (event:DragEvent<HTMLDivElement>, index: number) => {
     console.log(index);
     setDragItemIndex(index);
   };
-  const handleDragOver = (event:DragEvent) => {
-    event.preventDefault();
+  const handleDragOver = (ev:DragEvent<HTMLDivElement>) => {
+    ev.preventDefault();
   }
   const handleDrop = (index: number) => {
     console.log(index)
@@ -41,7 +41,7 @@ export const TaskList = () => {
           {" "}
           <Task
           className=" bg-orange-500"
-            onDragStart={() => handleDragStart(index)}
+            onDragStart={(e) => handleDragStart(e,index)}
             onDragOver={handleDragOver}
             onDrop={() => handleDrop(index)}
             onDragEnter={() => handleDragEnter(index)}

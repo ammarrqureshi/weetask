@@ -20,6 +20,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
           setTasks([...tasks]);
         }
       }
+      return 0;
     });
   };
   const deleteTask = (id: number) => {
@@ -29,6 +30,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
         setTasks([...tasks]);
         console.log(tasks);
       }
+      return 0;
     });
   };
   const updateTask = (
@@ -44,6 +46,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
         task.updated_at = new Date();
         setTasks([...tasks]);
       }
+      return 0;
     });
 
     console.log(`editing ${id}`);
