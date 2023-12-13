@@ -37,7 +37,7 @@ export const Form = ({
   return (
     <div className="w-screen z-50 flex justify-center items-center backdrop-blur h-screen bg-slate-800/10 fixed top-0 left-0 right-0 bottom-0">
       <form
-        className={`m-8 py-6 px-5 flex flex-wrap inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-900  border-slate-800 border  dark:text-slate-300 rounded-md hover:shadow-lg 
+        className={`m-8 py-6 px-5 flex flex-wrap inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-900  border-slate-800 border  dark:text-slate-300 rounded-xl hover:shadow-lg 
       )}`}
         onSubmit={formSubmitHandler}
       >
@@ -56,7 +56,7 @@ export const Form = ({
 
         <Label>Priority</Label>
         <select
-          className="bg-slate-850 outline-none py-4 px-3 focus:border-slate-700 border-2 border-slate-800 rounded-md text-slate-300  "
+          className="bg-slate-850 outline-none py-4 px-3 focus:border-slate-700 border border-slate-800 rounded-xl text-slate-300  "
           id="priority"
           name="priority"
           {...priorityValue}

@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 
 export type TaskType = {
   id: number;
+  sortIndex?:number;
   text: string;
   priority: "high" | "medium" | "low" | string;
   status?: "progress" | "pending" | "completed";
@@ -12,6 +13,7 @@ export type TaskType = {
 
 export interface TaskContextType {
   tasks: TaskType[];
+  setTasks: Dispatch<SetStateAction<TaskType[]>>;
   addTask: (task: TaskType) => void;
   // updateTask: (id: number) => void;
   checkTask: (id: number) => void;

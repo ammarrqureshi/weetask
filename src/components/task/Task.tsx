@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, DragEventHandler } from "react";
 import { FormContextType, TaskType } from "../../types/types.tasks";
 import { Button } from "../UI";
 import Icon from "../UI/Icon";
@@ -8,15 +8,27 @@ import { FormContext } from "../../contexts/FormContext";
 import { getDate } from "../../utils";
 import { IconWrapper } from "../UI/IconWrapper";
 
-type taskProps = {
+interface taskProps {
   task: TaskType;
   checkTask: (id: number) => void;
   deleteTask: (id: number) => void;
-};
-export const Task: React.FC<taskProps> = (
-  { task, checkTask, deleteTask },
-  { ...rest }
-) => {
+  onDragStart: DragEventHandler<HTMLDivElement>;
+  onDragOver: DragEventHandler<HTMLDivElement>;
+  onDragEnter: DragEventHandler<HTMLDivElement>;
+  onDrop: DragEventHandler<HTMLDivElement>;
+
+  className?: string;
+}
+export const Task: React.FC<taskProps> = ({
+  task,
+  checkTask,
+  deleteTask,
+  onDragStart,
+  onDragOver,
+  onDragEnter,
+  onDrop,
+  className,
+}) => {
   const { isEditing, setIsEditing } = useContext(
     FormContext
   ) as FormContextType;
@@ -39,9 +51,13 @@ export const Task: React.FC<taskProps> = (
 
   return (
     <div
-      className={`box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-xl hover:shadow-lg hover:bg-slate-900 
+      className={`${className} box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-xl hover:shadow-lg hover:bg-slate-900 
       )}`}
       draggable
+      onDragStart={onDragStart}
+      onDragOver={onDragOver}
+      onDrop={onDrop}
+      onDragEnter={onDragEnter}
     >
       <div
         id="task-check-block"
@@ -103,10 +119,7 @@ export const Task: React.FC<taskProps> = (
           </Button>
           <IconWrapper>
             {" "}
-            <Icon
-              className="cursor-move w-5 h-5"
-              name="gripIcon"
-            />
+            <Icon className="cursor-move w-5 h-5" name="gripIcon" />
           </IconWrapper>
         </div>
       </div>

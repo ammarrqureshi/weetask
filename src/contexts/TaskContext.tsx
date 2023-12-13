@@ -62,7 +62,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   };
   return (
     <TaskContext.Provider
-      value={{ tasks, addTask, checkTask, deleteTask, updateTask }}
+      value={{ tasks, setTasks, addTask, checkTask, deleteTask, updateTask }}
     >
       {children}
     </TaskContext.Provider>

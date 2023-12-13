@@ -2,6 +2,7 @@ import { TaskType } from "./types/types.tasks";
 export const Tasks: TaskType[] = [
   {
     id: 0,
+    sortIndex:1,
     text: "task no 0",
     status: "progress",
     isComplete: false,
@@ -10,6 +11,7 @@ export const Tasks: TaskType[] = [
     updated_at: new Date()
   }, {
     id: 1,
+    sortIndex:2,
     text: "task no 1",
     status: "progress",
     isComplete: false,
@@ -20,6 +22,7 @@ export const Tasks: TaskType[] = [
   },
   {
     id: 2,
+    sortIndex:2,
     text: "task no 2",
     status: "pending",
     isComplete: false,
@@ -30,6 +33,7 @@ export const Tasks: TaskType[] = [
   },
   {
     id: 3,
+    sortIndex:2,
     text: "task no 3",
     status: "completed",
     isComplete: true,
@@ -40,6 +44,7 @@ export const Tasks: TaskType[] = [
   },
   {
     id: 4,
+    sortIndex:2,
     text: "task no 2",
     status: "pending",
     isComplete: false,
