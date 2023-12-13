@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { FormContextType, TaskType } from "../../types/types.tasks";
 import { Button } from "../UI";
 import Icon from "../UI/Icon";
@@ -23,45 +23,49 @@ export const Task: React.FC<taskProps> = (
     checkTask(task.id);
   };
   const getColor = () => {
-    
     switch (task.priority) {
       case "high":
-        return "text-red-400 border-red-400";
+        return "border-red-400 text-red-400";
       case "medium":
-        return "text-teal-400 border-teal-400 ";
-        case "low":
-          return "text-yellow-300 border-yellow-300 ";
-    
+        return "border-teal-400 text-teal-400";
+      case "low":
+        return "border-yellow-400 text-yellow-400";
 
       default:
-        return "text-gray-600 border-gray-600 "
+        return "border-gray-400 text-gray-400";
     }
   };
 
-
   return (
     <div
-      className={` duration-500 cursor-pointer m-8 py-4 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
+      className={` duration-500  m-8 py-4 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
       )}`}
     >
-      {task.isComplete ? (
-        <Icon onClick={taskClickHandler} className="w-6 " name="checkIcon" />
-      ) : (
-        <Icon onClick={taskClickHandler} name="circleIcon" className="w-6" />
-      )}
-      <a
-        onClick={taskClickHandler}
-        className={task.isComplete ? "line-through" : ""}
-        href="#task"
-      >
-        {task.text}
-      </a>
+      <div className="cursor-pointer flex justify-start items-center gap-3">
+        {task.isComplete ? (
+          <Icon onClick={taskClickHandler} className="w-6 " name="checkIcon" />
+        ) : (
+          <Icon onClick={taskClickHandler} name="circleIcon" className="w-6" />
+        )}
+        <a
+          onClick={taskClickHandler}
+          className={task.isComplete ? "line-through" : ""}
+          href="#task"
+        >
+          {task.text}
+        </a>
+      </div>
+
       <Tag colorClass={getColor()}>{task.priority}</Tag>
 
       <p>{getDate(task.updated_at)}</p>
 
-      <Button Type="danger" onClick={() => deleteTask(task.id)}>Delete</Button>
-      <Button Type="secondary" onClick={() => setIsEditing(true)}>Edit</Button>
+      <Button Type="danger" onClick={() => deleteTask(task.id)}>
+        Delete
+      </Button>
+      <Button Type="secondary" onClick={() => setIsEditing(true)}>
+        Edit
+      </Button>
       {isEditing ? <EditForm taskId={task.id}></EditForm> : null}
     </div>
   );

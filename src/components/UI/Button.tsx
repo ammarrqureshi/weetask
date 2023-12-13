@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode, useState } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 
 interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
@@ -6,19 +6,14 @@ interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = ({ children, Type, className, ...rest }: ButtonType) => {
-  const isError= true;
-
   const getType = () => {
-    
     switch (Type) {
       case "primary":
-        return "bg-rose-800   text-slate-300 disabled:";
+        return "rose";
       case "secondary":
-        return "bg-slate-800   text-slate-300 ";
-        case "danger":
-          return "bg-red-800   text-slate-300 ";
-        case "disabled":
-          return "bg-gray-800   text-gray-700 ";
+        return "slate";
+      case "danger":
+        return "red";
 
       default:
         break;
@@ -27,9 +22,8 @@ export const Button = ({ children, Type, className, ...rest }: ButtonType) => {
 
   return (
     <button
-      className={`${className} m-2 rounded-full border-slate-600 ${getType()} px-4 py-2 drop-shadow-xl hover:bg-slate-700 disabled:bg-gray-800 disabled:text-gray-900`}
+      className={`${className} m-2 rounded-full border-slate-600 bg-${getType()}-800 text-slate-300 px-4 py-2 drop-shadow-xl hover:bg-${getType()}-700 disabled:bg-gray-800 disabled:text-gray-900`}
       {...rest}
-      
     >
       {children}
     </button>
