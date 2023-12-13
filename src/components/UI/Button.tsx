@@ -9,9 +9,10 @@ export const Button = ({ children, Type, className, ...rest }: ButtonType) => {
   const getType = () => {
     switch (Type) {
       case "primary":
-        return "wtOrange";
+        return "orange";
       case "secondary":
         return "slate";
+
       case "danger":
         return "red";
 
@@ -22,7 +23,11 @@ export const Button = ({ children, Type, className, ...rest }: ButtonType) => {
 
   return (
     <button
-      className={`${className} rounded-full border-slate-600 bg-${getType()}-800 text-slate-300 px-4 py-2 drop-shadow-xl hover:bg-${getType()}-700 disabled:bg-gray-800 disabled:text-gray-900`}
+      className={`${className}  border-slate-600   ${
+        Type === "icon"
+          ? `p-0 hover:bg-orange-700 rounded-full`
+          : `px-4 py-2 rounded-full text-slate-300 ${getType()} bg-${getType()}-600 hover:bg-${getType()}-500`
+      } drop-shadow-xl  disabled:bg-gray-800 disabled:text-gray-900`}
       {...rest}
     >
       {children}

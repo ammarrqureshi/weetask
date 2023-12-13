@@ -6,6 +6,7 @@ import { Tag } from "../UI/Tag";
 import { EditForm } from "../taskform/EditForm";
 import { FormContext } from "../../contexts/FormContext";
 import { getDate } from "../../utils";
+import { IconWrapper } from "../UI/IconWrapper";
 
 type taskProps = {
   task: TaskType;
@@ -38,7 +39,7 @@ export const Task: React.FC<taskProps> = (
 
   return (
     <div
-      className={`box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-md hover:shadow-lg hover:bg-slate-900 
+      className={`box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-xl hover:shadow-lg hover:bg-slate-900 
       )}`}
     >
       <div
@@ -75,15 +76,25 @@ export const Task: React.FC<taskProps> = (
         </div>
       </div>
 
-      <div id="task-actions-block" className="task-actions  flex gap-3 justify-center items-center ">
+      <div
+        id="task-actions-block"
+        className="task-actions  flex gap-3 justify-center items-center "
+      >
         <Tag colorClass={getColor()}>{task.priority}</Tag>
+        <Button Type="icon" onClick={() => setIsEditing(true)}>
+          <IconWrapper>
+            <Icon name="pencilIcon" />
+          </IconWrapper>
+        </Button>
 
-        <Button Type="danger" onClick={() => deleteTask(task.id)}>
-          Delete
+        <Button Type="icon" onClick={() => deleteTask(task.id)}>
+          <IconWrapper>
+            <Icon onClick={taskClickHandler}  name="deleteIcon" />{" "}
+          </IconWrapper>
         </Button>
-        <Button Type="secondary" onClick={() => setIsEditing(true)}>
-          Edit
-        </Button>
+        <IconWrapper>
+        <Icon onClick={taskClickHandler} name="gripIcon" /></IconWrapper>
+
       </div>
 
       {isEditing ? <EditForm taskId={task.id}></EditForm> : null}
