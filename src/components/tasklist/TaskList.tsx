@@ -12,6 +12,8 @@ export const TaskList = () => {
   const handleDragStart = (event:DragEvent<HTMLDivElement>, index: number) => {
     console.log(index);
     setDragItemIndex(index);
+
+
   };
   const handleDragOver = (ev:DragEvent<HTMLDivElement>) => {
     ev.preventDefault();
@@ -19,14 +21,16 @@ export const TaskList = () => {
   const handleDrop = (index: number) => {
     console.log(index)
     const _tasks = [...tasks];
-    const [dragItem]= _tasks.splice(dragItemIndex , 1);
+    const [dragItem]=  _tasks.splice(dragItemIndex , 1);
     _tasks.splice(dragOverItemIndex , 0, dragItem);
     setTasks(_tasks);
+ 
   };
 
   const handleDragEnter = (index: number) => {
     console.log(index)
     setDragOverItemIndex(index);
+  
    
   };
 
