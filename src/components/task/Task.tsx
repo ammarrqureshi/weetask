@@ -38,7 +38,7 @@ export const Task: React.FC<taskProps> = (
 
   return (
     <div
-      className={`box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-800  border-slate-700 border  dark:text-slate-300 rounded-md hover:shadow-lg 
+      className={`box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-md hover:shadow-lg hover:bg-slate-900 
       )}`}
     >
       <div

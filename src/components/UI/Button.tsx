@@ -9,7 +9,7 @@ export const Button = ({ children, Type, className, ...rest }: ButtonType) => {
   const getType = () => {
     switch (Type) {
       case "primary":
-        return "rose";
+        return "wtOrange";
       case "secondary":
         return "slate";
       case "danger":
