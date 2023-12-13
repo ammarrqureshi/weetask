@@ -83,7 +83,7 @@ const Icon = (props: MyIconProps, className: string) => {
         return (
           <svg
             {...svgProps}
-            className="w-4"
+          
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
@@ -99,7 +99,7 @@ const Icon = (props: MyIconProps, className: string) => {
         return (
           <svg
             {...svgProps}
-            className="w-4"
+         
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"

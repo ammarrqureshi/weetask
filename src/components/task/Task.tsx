@@ -41,6 +41,7 @@ export const Task: React.FC<taskProps> = (
     <div
       className={`box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-xl hover:shadow-lg hover:bg-slate-900 
       )}`}
+      draggable
     >
       <div
         id="task-check-block"
@@ -90,21 +91,20 @@ export const Task: React.FC<taskProps> = (
           <Button Type="icon" onClick={() => setIsEditing(true)}>
             <IconWrapper>
               {" "}
-              <Icon name="pencilIcon" />
+              <Icon className="w-4 h-4" name="pencilIcon" />
             </IconWrapper>
           </Button>
 
           <Button Type="icon" onClick={() => deleteTask(task.id)}>
             <IconWrapper>
               {" "}
-              <Icon onClick={taskClickHandler} name="deleteIcon" />
+              <Icon className="w-4 h-4" name="deleteIcon" />
             </IconWrapper>{" "}
           </Button>
           <IconWrapper>
             {" "}
             <Icon
-              className="cursor-move"
-              onClick={taskClickHandler}
+              className="cursor-move w-5 h-5"
               name="gripIcon"
             />
           </IconWrapper>

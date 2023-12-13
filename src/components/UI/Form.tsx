@@ -88,6 +88,7 @@ export const Form = ({
             {titleCase(type)} Task
           </Button>
         </div>
+        
       </form>
     </div>
   );
