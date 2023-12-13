@@ -43,7 +43,7 @@ export const Task: React.FC<taskProps> = (
     >
       <div
         id="task-check-block"
-        className="cursor-pointer self-start flex  justify-start items-start gap-3"
+        className="cursor-pointer max-w-[50%]  self-start flex  justify-start items-start gap-3"
       >
         {task.isComplete ? (
           <Icon
@@ -60,11 +60,11 @@ export const Task: React.FC<taskProps> = (
         )}
         <div
           id="task-date-block"
-          className="flex gap-2 flex-col justify-start items-start"
+          className="flex gap-2 flex-col overflow-hidden text-ellipsis	justify-start items-start"
         >
           <a
             onClick={taskClickHandler}
-            className={`leading-none  ${
+            className={`leading-none truncate max-w-[15rem] ${
               task.isComplete ? "line-through " : ""
             }`}
             href="#task"
