@@ -39,7 +39,7 @@ export const TaskList = () => {
     TaskContext
   ) as TaskContextType;
   return (
-    <div className="box-content max-w-xl flex flex-col gap-4 justify-center items-center flex-wrap py-4 border-t border-slate-700">
+    <div className="box-content max-w-xl min-w-min flex flex-col gap-4 justify-center items-center flex-wrap py-4 border-t border-slate-700">
       {tasks.map((task, index) => (
         <FormProvider>
           {" "}

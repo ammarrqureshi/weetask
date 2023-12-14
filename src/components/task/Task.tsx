@@ -35,6 +35,7 @@ export const Task: React.FC<taskProps> = ({
   const taskClickHandler = () => {
     checkTask(task.id);
   };
+  const today = new Date();
   const getColor = () => {
     switch (task.priority) {
       case "high":
@@ -78,18 +79,22 @@ export const Task: React.FC<taskProps> = ({
         )}
         <div
           id="task-date-block"
-          className="flex gap-2 flex-col overflow-hidden text-ellipsis	justify-start items-start"
+          className="flex gap-2 flex-col   overflow-hidden text-ellipsis	justify-start items-start"
         >
           <a
             onClick={taskClickHandler}
-            className={`leading-none truncate max-w-[15rem] ${
+            className={`leading-none ${
               task.isComplete ? "line-through " : ""
             }`}
             href="#task"
           >
             {task.text}
           </a>
-          <p className="text-xs text-gray-500">{getDate(task.updated_at)}</p>
+          <p
+            className={`text-xs ${task.updated_at===today ? "text-green-500" : "text-gray-500"}`}
+          >
+            {task.updated_at === today ? "Today" : getDate(task.updated_at)}
+          </p>
         </div>
       </div>
 
