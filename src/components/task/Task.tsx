@@ -59,7 +59,7 @@ export const Task: React.FC<taskProps> = ({
     >
       <div
         id="task-left-block"
-        className="cursor-pointer  flex justify-start items-start gap-3"
+        className="cursor-pointer truncate w-[70%]  flex justify-start items-start gap-3"
       >
         {task.isComplete ? (
           <Icon
@@ -99,14 +99,14 @@ export const Task: React.FC<taskProps> = ({
 
       <div
         id="task-right-block"
-        className="flex justify-center items-center gap-6"
+        className="flex justify-end items-center gap-3 max-sm:gap-2"
       >
         <Tag className="" colorClass={getColor()}>
           {task.priority}
         </Tag>
         <div
           id="task-actions-block"
-          className="task-actions   flex gap-2 justify-center items-center "
+          className="task-actions   flex gap-0 justify-end items-center max-sm:gap-0 "
         >
           <Button
             className="group"
