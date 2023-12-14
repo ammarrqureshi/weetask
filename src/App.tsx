@@ -22,11 +22,14 @@ const App = () => {
           Also send me email here So we can discuss project there:<br></br><br></br>
           ammarqureshibusiness@gmail.com
         </h1> */}
-        <Button className="group" Type="icon" onClick={() => changeTheme()}>
+        <Button className="group fixed top-0 right-0" Type="icon" onClick={() => changeTheme()}>
           <IconWrapper>
             <Tooltip>{theme}</Tooltip>
-
-            <Icon className="w-6 h-6" name="deleteIcon" />
+            {theme === "Dark" ? (
+              <Icon className="w-6 h-6" name="darkIcon" />
+            ) : (
+              <Icon className="w-6 h-6" name="lightIcon" />
+            )}
           </IconWrapper>{" "}
         </Button>
         <Button Type="primary" onClick={() => setIsEditing(true)}>
