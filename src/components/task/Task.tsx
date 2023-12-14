@@ -52,7 +52,7 @@ export const Task: React.FC<taskProps> = ({
 
   return (
     <div
-      className={`${className} box-content duration-500 w-full py-3 px-5 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-xl hover:shadow-lg hover:bg-slate-900 
+      className={`${className} box-border  w-full py-3 pl-4 pr-2 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-xl hover:shadow-lg hover:bg-slate-900 
       )}`}
       draggable
       onDragStart={onDragStart}
@@ -61,8 +61,8 @@ export const Task: React.FC<taskProps> = ({
       onDragEnter={onDragEnter}
     >
       <div
-        id="task-check-block"
-        className="cursor-pointer max-w-[50%]  self-start flex  justify-start items-start gap-3"
+        id="task-left-block"
+        className="cursor-pointer  flex w-[50%] truncate justify-start items-start gap-3"
       >
         {task.isComplete ? (
           <Icon
@@ -79,19 +79,21 @@ export const Task: React.FC<taskProps> = ({
         )}
         <div
           id="task-date-block"
-          className="flex gap-2 flex-col   overflow-hidden text-ellipsis	justify-start items-start"
+          className="flex gap-2 flex-col  max-w-min	justify-start items-start"
         >
           <a
             onClick={taskClickHandler}
-            className={`leading-none ${
-              task.isComplete ? "line-through " : ""
+            className={`leading-none  w-full ${
+              task.isComplete ? "line-through text-gray-400 " : ""
             }`}
             href="#task"
           >
             {task.text}
           </a>
           <p
-            className={`text-xs ${task.updated_at===today ? "text-green-500" : "text-gray-500"}`}
+            className={`text-xs ${
+              task.updated_at === today ? "text-green-500" : "text-gray-500"
+            }`}
           >
             {task.updated_at === today ? "Today" : getDate(task.updated_at)}
           </p>

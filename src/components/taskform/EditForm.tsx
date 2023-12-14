@@ -18,6 +18,7 @@ export const EditForm = ({ taskId }: EditFormProps) => {
         taskText.setInput(task.text);
         taskPriority.setSelect(task.priority);
       }
+      return 0;
     });
   }, []);
 

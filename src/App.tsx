@@ -9,7 +9,7 @@ const App = () => {
   const { isEditing, setIsEditing } = useContext(FormContext) as FormContextType;
 
   return (
-    <div className="App">
+    <div className="App max-w-screen">
       <header className="App-header">
         {/* Text for the client */}
         {/* <h1 className="text-2xl text-slate-200"> 
