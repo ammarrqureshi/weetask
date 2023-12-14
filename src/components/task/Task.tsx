@@ -1,12 +1,9 @@
 import { useContext, DragEventHandler } from "react";
 import { FormContextType, TaskType } from "../../types/types.tasks";
-import { Button } from "../UI";
-import Icon from "../UI/Icon";
-import { Tag } from "../UI/Tag";
+import { Button, Tag, Icon, Tooltip, IconWrapper } from "../UI";
 import { EditForm } from "../taskform/EditForm";
 import { FormContext } from "../../contexts/FormContext";
 import { getDate } from "../../utils";
-import { IconWrapper } from "../UI/IconWrapper";
 
 interface taskProps {
   task: TaskType;
@@ -62,7 +59,7 @@ export const Task: React.FC<taskProps> = ({
     >
       <div
         id="task-left-block"
-        className="cursor-pointer  flex w-[50%] truncate justify-start items-start gap-3"
+        className="cursor-pointer  flex justify-start items-start gap-3"
       >
         {task.isComplete ? (
           <Icon
@@ -79,11 +76,11 @@ export const Task: React.FC<taskProps> = ({
         )}
         <div
           id="task-date-block"
-          className="flex gap-2 flex-col  max-w-min	justify-start items-start"
+          className="flex gap-2 flex-col  	justify-start items-start"
         >
           <a
             onClick={taskClickHandler}
-            className={`leading-none  w-full ${
+            className={`leading-none group relative ${
               task.isComplete ? "line-through text-gray-400 " : ""
             }`}
             href="#task"
@@ -109,18 +106,28 @@ export const Task: React.FC<taskProps> = ({
         </Tag>
         <div
           id="task-actions-block"
-          className="task-actions  flex gap-2 justify-center items-center "
+          className="task-actions   flex gap-2 justify-center items-center "
         >
-          <Button Type="icon" onClick={() => setIsEditing(true)}>
+          <Button
+            className="group"
+            Type="icon"
+            onClick={() => setIsEditing(true)}
+          >
             <IconWrapper>
               {" "}
+              <Tooltip>Edit</Tooltip>
               <Icon className="w-4 h-4" name="pencilIcon" />
             </IconWrapper>
           </Button>
 
-          <Button Type="icon" onClick={() => deleteTask(task.id)}>
+          <Button
+            className="group"
+            Type="icon"
+            onClick={() => deleteTask(task.id)}
+          >
             <IconWrapper>
               {" "}
+              <Tooltip>Delete</Tooltip>
               <Icon className="w-4 h-4" name="deleteIcon" />
             </IconWrapper>{" "}
           </Button>

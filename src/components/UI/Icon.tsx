@@ -7,7 +7,7 @@ type MyIconProps = {
   onClick?: () => void;
 };
 
-const Icon = (props: MyIconProps, className: string) => {
+export const Icon = (props: MyIconProps, className: string) => {
   const { name, ...svgProps } = props;
   const getIconSvg = () => {
     switch (props.name) {
