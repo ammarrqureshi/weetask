@@ -26,13 +26,14 @@ export const Task: React.FC<taskProps> = ({
   onDrop,
   className,
 }) => {
+  const today = new Date().toDateString();
   const { isEditing, setIsEditing } = useContext(
     FormContext
   ) as FormContextType;
   const taskClickHandler = () => {
     checkTask(task.id);
   };
-  const today = new Date();
+ 
   const getColor = () => {
     switch (task.priority) {
       case "high":
@@ -49,7 +50,7 @@ export const Task: React.FC<taskProps> = ({
 
   return (
     <div
-      className={`${className} box-border  w-full py-3 pl-4 pr-2 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border  dark:text-slate-300 rounded-xl hover:shadow-lg hover:bg-slate-900 
+      className={`${className} box-border  w-full py-3 pl-4 pr-2 flex inline-flex items-center gap-4 justify-between shadow-inner  bg-slate-850  border-slate-800 border   rounded-xl hover:shadow-lg hover:bg-slate-900 
       )}`}
       draggable
       onDragStart={onDragStart}
@@ -88,11 +89,11 @@ export const Task: React.FC<taskProps> = ({
             {task.text}
           </a>
           <p
-            className={`text-xs ${
-              task.updated_at === today ? "text-green-500" : "text-gray-500"
+            className={`text-xs  ${
+              task.updated_at.toDateString() === today ? "text-green-500" : "opacity-30"
             }`}
           >
-            {task.updated_at === today ? "Today" : getDate(task.updated_at)}
+            {task.updated_at.toDateString() === today ? "Today" : getDate(task.updated_at)}
           </p>
         </div>
       </div>

@@ -12,7 +12,7 @@ const App = () => {
   ) as FormContextType;
   const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
   return (
-    <div className="App max-w-screen">
+    <div className="App h-screen bg-slate-900 w-screen text-slate-100">
       <header className="App-header">
         {/* Text for the client */}
         {/* <h1 className="text-2xl text-slate-200"> 
@@ -22,7 +22,11 @@ const App = () => {
           Also send me email here So we can discuss project there:<br></br><br></br>
           ammarqureshibusiness@gmail.com
         </h1> */}
-        <Button className="group fixed top-0 right-0" Type="icon" onClick={() => changeTheme()}>
+        <Button
+          className="group fixed top-0 right-0"
+          Type="icon"
+          onClick={() => changeTheme()}
+        >
           <IconWrapper>
             <Tooltip>{theme}</Tooltip>
             {theme === "Dark" ? (
