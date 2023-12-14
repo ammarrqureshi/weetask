@@ -2,7 +2,7 @@ import { Dispatch, SetStateAction } from "react";
 
 export type TaskType = {
   id: number;
-  sortIndex?:number;
+  sortIndex?: number;
   text: string;
   priority: "high" | "medium" | "low" | string;
   status?: "progress" | "pending" | "completed";
@@ -28,4 +28,10 @@ export interface TaskContextType {
 export interface FormContextType {
   isEditing: boolean;
   setIsEditing: Dispatch<SetStateAction<boolean>>;
+}
+
+export interface ThemeContextType {
+  theme: "Dark" | "Light" ;
+  setTheme: Dispatch<SetStateAction<ThemeContextType["theme"]>>;
+  changeTheme: ()=>void;
 }

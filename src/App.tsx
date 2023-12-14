@@ -1,14 +1,16 @@
-import { useContext,useState } from "react";
+import { useContext, useState } from "react";
 import { AddForm } from "./components/taskform/AddForm";
 import { TaskList } from "./components/tasklist/TaskList";
 import { TaskProvider } from "./contexts/TaskContext";
-import { Button , Icon, IconWrapper, Tooltip} from "./components/UI";
-import {  FormContextType } from "./types/types.tasks";
+import { Button, Icon, IconWrapper, Tooltip } from "./components/UI";
+import { FormContextType, ThemeContextType } from "./types/types.tasks";
 import { FormContext } from "./contexts/FormContext";
+import { ThemeContext } from "./contexts/ThemeContext";
 const App = () => {
-  const { isEditing, setIsEditing } = useContext(FormContext) as FormContextType;
-  const [theme, setTheme] = useState("Dark")
-
+  const { isEditing, setIsEditing } = useContext(
+    FormContext
+  ) as FormContextType;
+  const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
   return (
     <div className="App max-w-screen">
       <header className="App-header">
@@ -20,20 +22,18 @@ const App = () => {
           Also send me email here So we can discuss project there:<br></br><br></br>
           ammarqureshibusiness@gmail.com
         </h1> */}
-          <Button
-            className="group"
-            Type="icon"
-            onClick={() => console.log("hellow")}
-          >
-            <IconWrapper>
-             <Tooltip>{theme}</Tooltip>
-             
-              <Icon className="w-6 h-6" name="deleteIcon" />
-            </IconWrapper>{" "}
-          </Button>
-        <Button Type="primary" onClick={() => setIsEditing(true)}>Add Task</Button>
+        <Button className="group" Type="icon" onClick={() => changeTheme()}>
+          <IconWrapper>
+            <Tooltip>{theme}</Tooltip>
+
+            <Icon className="w-6 h-6" name="deleteIcon" />
+          </IconWrapper>{" "}
+        </Button>
+        <Button Type="primary" onClick={() => setIsEditing(true)}>
+          Add Task
+        </Button>
         <TaskProvider>
-                 {isEditing ? <AddForm />: null}
+          {isEditing ? <AddForm /> : null}
 
           <TaskList></TaskList>
         </TaskProvider>
