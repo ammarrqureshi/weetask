@@ -82,7 +82,7 @@ export const TaskList = () => {
       )}
       </div>
 
-      <div id="completed-tasks" className=" border-t border-slate-800 bg-inherit w-full pt-4 opacity-50">
+      <div id="completed-tasks" className=" border-t border-slate-800 bg-inherit w-full pt-4 opacity-30">
       {tasks.map((task, index) => {
             if (task.isComplete === true) {
               return (
