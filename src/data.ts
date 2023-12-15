@@ -32,7 +32,7 @@ export const Tasks: TaskType[] = [
     id: 3,
     text: "task no 4",
     status: "pending",
-    isComplete: false,
+    isComplete: true,
     created_at: new Date(),
     priority: "low",
     updated_at: new Date('2023-12-12')

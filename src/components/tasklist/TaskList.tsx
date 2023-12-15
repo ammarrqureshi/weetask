@@ -7,6 +7,7 @@ import { DragEvent } from "react";
 import { FormProvider } from "../../contexts/FormContext";
 import { Button } from "../UI";
 export const TaskList = () => {
+
   const [dragItemIndex, setDragItemIndex] = useState<number>(0);
   const [dragOverItemIndex, setDragOverItemIndex] = useState<number>(0);
 
@@ -33,6 +34,9 @@ export const TaskList = () => {
   const { tasks, setTasks, checkTask, deleteTask } = useContext(
     TaskContext
   ) as TaskContextType;
+
+  const tasksLeft = tasks.length - (tasks.filter(task=> task.isComplete==true)).length
+
   return (
     <div className="box-border overflow-hidden max-w-lg relative flex flex-col gap-4 justify-center items-center flex-wrap py-4 pb-8 border-t border-slate-800">
       {tasks.length > 0 ? (
@@ -60,7 +64,7 @@ export const TaskList = () => {
             className="text-xs opacity-30 absolute bottom-0 left-0 border-t border-inherit px-4 mt-4"
           >
             {" "}
-            {tasks.length} tasks left
+            {tasksLeft } tasks left
           </div>
         </>
       ) : (
