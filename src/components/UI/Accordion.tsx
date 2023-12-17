@@ -15,7 +15,7 @@ export const Accordion: React.FC<AccordionProps> = ({children, title, className}
     })
   return (
     <div>
-        <div onClick={()=> setIsOpen(!isOpen)} className= {` w-full bg-green-500 cursor-pointer ${className}`}>
+        <div onClick={()=> setIsOpen(!isOpen)} className= {` w-full cursor-pointer ${className}`}>
                 {title}
         </div>
         <animated.div className="w-full" style={{height, opacity, overflow:'hidden'}}>
