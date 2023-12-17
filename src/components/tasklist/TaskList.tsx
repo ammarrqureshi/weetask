@@ -7,6 +7,7 @@ import { DragEvent } from "react";
 import { FormProvider } from "../../contexts/FormContext";
 import { Button } from "../UI";
 import { Accordion } from "../UI/Accordion";
+import { Container } from "../UI/Container";
 export const TaskList = () => {
   const [dragItemIndex, setDragItemIndex] = useState<number>(0);
   const [dragOverItemIndex, setDragOverItemIndex] = useState<number>(0);
@@ -39,6 +40,8 @@ export const TaskList = () => {
     tasks.length - tasks.filter((task) => task.isComplete == true).length;
 
   return (
+
+    <Container>
     <div className="box-border overflow-hidden max-w-lg relative flex flex-col gap-4 justify-center items-center flex-wrap py-4 pb-8 border-t border-slate-800">
       <div className="relative w-full mt-4 pb-8 flex flex-col gap-4 justify-center items-center flex-wrap">
       {tasksLeft > 0 ? (
@@ -108,6 +111,6 @@ export const TaskList = () => {
 
 
       </div></Accordion>
-    </div>
+    </div></Container>
   );
 };
