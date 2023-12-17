@@ -6,6 +6,7 @@ import { DragEvent } from "react";
 
 import { FormProvider } from "../../contexts/FormContext";
 import { Button } from "../UI";
+import { Accordion } from "../UI/Accordion";
 export const TaskList = () => {
   const [dragItemIndex, setDragItemIndex] = useState<number>(0);
   const [dragOverItemIndex, setDragOverItemIndex] = useState<number>(0);
@@ -39,7 +40,7 @@ export const TaskList = () => {
 
   return (
     <div className="box-border overflow-hidden max-w-lg relative flex flex-col gap-4 justify-center items-center flex-wrap py-4 pb-8 border-t border-slate-800">
-      <div className="relative w-full mt-4 pb-8">
+      <div className="relative w-full mt-4 pb-8 flex flex-col gap-4 justify-center items-center flex-wrap">
       {tasksLeft > 0 ? (
         <>
           {tasks.map((task, index) => {
@@ -81,8 +82,8 @@ export const TaskList = () => {
         </div>
       )}
       </div>
-
-      <div id="completed-tasks" className=" border-t border-slate-800 bg-inherit w-full pt-4 opacity-30">
+<Accordion className="w-full opacity-40 text-xs" title="Completed Tasks">
+      <div id="completed-tasks" className="  flex flex-col gap-4 justify-center items-center flex-wrap border-t border-slate-800 bg-inherit w-full pt-4 opacity-30">
       {tasks.map((task, index) => {
             if (task.isComplete === true) {
               return (
@@ -106,7 +107,7 @@ export const TaskList = () => {
           })}
 
 
-      </div>
+      </div></Accordion>
     </div>
   );
 };
