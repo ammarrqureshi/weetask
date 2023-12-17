@@ -6,12 +6,14 @@ import { Button, Icon, IconWrapper, Tooltip } from "./components/UI";
 import { FormContextType, ThemeContextType } from "./types/types.tasks";
 import { FormContext } from "./contexts/FormContext";
 import { ThemeContext } from "./contexts/ThemeContext";
+import { Container } from "./components/UI/Container";
 const App = () => {
   const { isEditing, setIsEditing } = useContext(
     FormContext
   ) as FormContextType;
   const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
   return (
+    
     <div className="App h-screen bg-slate-900 w-screen text-slate-100">
       <header className="App-header">
         {/* Text for the client */}
@@ -39,11 +41,13 @@ const App = () => {
         <Button Type="primary" onClick={() => setIsEditing(true)}>
           Add Task
         </Button>
+
+        <Container>
         <TaskProvider>
           {isEditing ? <AddForm /> : null}
 
           <TaskList></TaskList>
-        </TaskProvider>
+        </TaskProvider></Container>
       </header>
     </div>
   );

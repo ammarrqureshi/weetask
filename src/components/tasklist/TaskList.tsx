@@ -41,7 +41,7 @@ export const TaskList = () => {
 
   return (
 
-    <Container>
+    
     <div className="box-border overflow-hidden max-w-lg relative flex flex-col gap-4 justify-center items-center flex-wrap py-4 pb-8 border-t border-slate-800">
       <div className="relative w-full mt-4 pb-8 flex flex-col gap-4 justify-center items-center flex-wrap">
       {tasksLeft > 0 ? (
@@ -111,6 +111,6 @@ export const TaskList = () => {
 
 
       </div></Accordion>
-    </div></Container>
+    </div>
   );
 };
