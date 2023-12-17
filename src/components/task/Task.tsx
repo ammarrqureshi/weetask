@@ -37,14 +37,14 @@ export const Task: React.FC<taskProps> = ({
   const getColor = () => {
     switch (task.priority) {
       case "high":
-        return "border-red-400 text-red-400 bg-red-700/20";
+        return "red";
       case "medium":
-        return "border-teal-400 text-teal-400  bg-teal-700/20";
+        return "teal";
       case "low":
-        return "border-yellow-400 text-yellow-400  bg-yellow-700/20";
+        return "yellow";
 
       default:
-        return "border-gray-400 text-gray-400";
+        return "gray";
     }
   };
 
@@ -102,7 +102,7 @@ export const Task: React.FC<taskProps> = ({
         id="task-right-block"
         className="flex justify-end items-center gap-3 max-sm:gap-2"
       >
-        <Tag className="" colorClass={getColor()}>
+        <Tag className="" color={getColor()}>
           {task.priority}
         </Tag>
         <div
