@@ -7,6 +7,7 @@ import { FormContextType, ThemeContextType } from "./types/types.tasks";
 import { FormContext } from "./contexts/FormContext";
 import { ThemeContext } from "./contexts/ThemeContext";
 import { Container } from "./components/UI/Container";
+import { Navbar } from "./components/Navbar";
 
 const App = () => {
   const { isEditing, setIsEditing } = useContext(
@@ -24,6 +25,8 @@ const App = () => {
           Also send me email here So we can discuss project there:<br></br><br></br>
           ammarqureshibusiness@gmail.com
         </h1> */}
+
+        <Navbar></Navbar>
         <Button
           className="group fixed top-0 right-0"
           Type="icon"
