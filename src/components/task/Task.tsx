@@ -73,21 +73,7 @@ export const Task: React.FC<taskProps> = ({
             onClick={taskClickHandler}
             name="circleIcon"
             className="w-6 h-6 min-w-min"
-          />
-        )}
-        <div
-          id="task-date-block"
-          className="flex gap-2 flex-col  	justify-start items-start"
-        >
-          <a
-            onClick={taskClickHandler}
-            className={`leading-none group relative ${
-              task.isComplete ? "line-through text-gray-400 " : ""
-            }`}
-            href="#task"
-          >
-            {task.text}
-          </a>
+          />)} <div id="task-date-block" className="flex gap-2 flex-col  	justify-start items-start" > <a onClick={taskClickHandler} className={`leading-none group relative ${ task.isComplete ? "line-through text-gray-400 " : "" }`} href="#task" > {task.text} </a>
           <p
             className={`text-xs  ${
               task.updated_at.toDateString() === today ? "text-green-500" : "opacity-30"
