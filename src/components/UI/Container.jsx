@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export const Container = ({children}) => {
+export const Container = ({ children }) => {
   return (
-    <div className='w-[80%] m-auto overflow-auto max-sm:w-[95%]'>{children}</div>
-  )
-}
+    <div className="w-[70%] m-auto overflow-auto max-sm:w-[95%]">
+      {children}
+    </div>
+  );
+};

@@ -6,7 +6,7 @@ import { Button, IconWrapper, Tooltip, Icon } from "./UI";
 export const Navbar = () => {
   const { theme, changeTheme } = useContext(ThemeContext) as ThemeContextType;
   return (
-    <div className="w-full bg-orange-500">
+    <div className="box-border p-1  w-full border-b  border-slate-500/20 ">
       <Button className="group " Type="icon" onClick={() => changeTheme()}>
         <IconWrapper>
           <Tooltip>{theme}</Tooltip>

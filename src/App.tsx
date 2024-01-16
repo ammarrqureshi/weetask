@@ -14,17 +14,17 @@ const App = () => {
     FormContext,
   ) as FormContextType;
   return (
-    <div className="App h-screen bg-slate-900 w-screen text-slate-100">
+    <div className="App h-full w-full ">
       <header className="w-full">
         <Navbar></Navbar>
       </header>
-      <main className="flex w-full">
-        <div className="bg-green-500 min-w-50 ">
+      <main className="h-full flex w-full">
+        <div className="border-r border-slate-500/20 min-w-[250px] ">
           <Button Type="primary" onClick={() => setIsEditing(true)}>
             Add Task
           </Button>
         </div>
-        <div className="bg-sky-500 px-4 w-full">
+        <div className="box-border w-full">
           <Container>
             <TaskProvider>
               {isEditing ? <AddForm /> : null}

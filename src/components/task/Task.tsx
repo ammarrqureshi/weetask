@@ -28,12 +28,12 @@ export const Task: React.FC<taskProps> = ({
 }) => {
   const today = new Date().toDateString();
   const { isEditing, setIsEditing } = useContext(
-    FormContext
+    FormContext,
   ) as FormContextType;
   const taskClickHandler = () => {
     checkTask(task.id);
   };
- 
+
   const getColor = () => {
     switch (task.priority) {
       case "high":
@@ -73,13 +73,33 @@ export const Task: React.FC<taskProps> = ({
             onClick={taskClickHandler}
             name="circleIcon"
             className="w-6 h-6 min-w-min"
-          />)} <div id="task-date-block" className="flex gap-2 flex-col  	justify-start items-start" > <a onClick={taskClickHandler} className={`leading-none group relative ${ task.isComplete ? "line-through text-gray-400 " : "" }`} href="#task" > {task.text} </a>
+          />
+        )}{" "}
+        <div
+          id="task-date-block"
+          className="flex gap-2 flex-col  	justify-start items-start"
+        >
+          {" "}
+          <a
+            onClick={taskClickHandler}
+            className={`leading-none group relative ${
+              task.isComplete ? "line-through text-gray-400 " : ""
+            }`}
+            href="#task"
+          >
+            {" "}
+            {task.text}{" "}
+          </a>
           <p
             className={`text-xs  ${
-              task.updated_at.toDateString() === today ? "text-green-500" : "opacity-30"
+              task.updated_at.toDateString() === today
+                ? "text-green-500"
+                : "opacity-30"
             }`}
           >
-            {task.updated_at.toDateString() === today ? "Today" : getDate(task.updated_at)}
+            {task.updated_at.toDateString() === today
+              ? "Today"
+              : getDate(task.updated_at)}
           </p>
         </div>
       </div>
