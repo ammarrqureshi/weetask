@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { FormProvider } from "./contexts/FormContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { TaskProvider } from "./contexts/TaskContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -12,9 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider>
-      <FormProvider>
+      <TaskProvider>
         <App />
-      </FormProvider>
+      </TaskProvider>
     </ThemeProvider>
   </React.StrictMode>,
 );
