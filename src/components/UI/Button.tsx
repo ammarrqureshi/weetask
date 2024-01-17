@@ -25,7 +25,7 @@ export const Button = ({ children, Type, className, ...rest }: ButtonType) => {
     <button
       className={`${className}  border-slate-600   ${
         Type === "icon"
-          ? `p-1 hover:bg-orange-700 rounded-lg max-sm:p-0`
+          ? `p-1 hover:bg-orange-600 rounded-lg max-sm:p-0`
           : `px-4 py-2 rounded-full  ${getType()} bg-${getType()}-600 hover:bg-${getType()}-500`
       } flex gap-2 justify-center items-center drop-shadow-xl  disabled:bg-gray-800 disabled:text-gray-900`}
       {...rest}

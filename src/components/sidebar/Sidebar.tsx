@@ -19,7 +19,7 @@ export const Sidebar = () => {
         + Add Task
       </Button>
       <Button
-        className="text-orange-500 hover:text-slate-300"
+        className="text-orange-600 hover:text-slate-300"
         Type=""
         type="button"
         onClick={() => setIsEditing(true)}
