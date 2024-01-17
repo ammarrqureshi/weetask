@@ -6,7 +6,7 @@ import { Sidebar } from "./components/sidebar/Sidebar";
 
 const App = () => {
   return (
-    <div className="App h-full w-full ">
+    <div className="App text-slate-200 h-full w-full ">
       <header className="w-full">
         <Navbar></Navbar>
       </header>
