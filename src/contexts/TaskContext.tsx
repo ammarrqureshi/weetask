@@ -28,7 +28,6 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
       if (task.id === id) {
         tasks.splice(tasks.indexOf(task), 1);
         setTasks([...tasks]);
-        console.log(tasks);
       }
       return 0;
     });
@@ -36,7 +35,7 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
   const updateTask = (
     id: number,
     updatedText: string,
-    updatedPriority: string
+    updatedPriority: string,
   ) => {
     tasks.map((task) => {
       if (task.id === id) {
@@ -48,8 +47,6 @@ export const TaskProvider: React.FC<{ children: ReactNode }> = ({
       }
       return 0;
     });
-
-    console.log(`editing ${id}`);
   };
   const addTask = (task: TaskType) => {
     const newTask: TaskType = {

@@ -11,14 +11,12 @@ export const TaskList = () => {
   const [dragOverItemIndex, setDragOverItemIndex] = useState<number>(0);
 
   const handleDragStart = (event: DragEvent<HTMLDivElement>, index: number) => {
-    console.log(index);
     setDragItemIndex(index);
   };
   const handleDragOver = (ev: DragEvent<HTMLDivElement>) => {
     ev.preventDefault();
   };
   const handleDrop = (index: number) => {
-    console.log(index);
     const _tasks = [...tasks];
     const [dragItem] = _tasks.splice(dragItemIndex, 1);
     _tasks.splice(dragOverItemIndex, 0, dragItem);
@@ -26,7 +24,6 @@ export const TaskList = () => {
   };
 
   const handleDragEnter = (index: number) => {
-    console.log(index);
     setDragOverItemIndex(index);
   };
 
@@ -45,7 +42,7 @@ export const TaskList = () => {
             {tasks.map((task, index) => {
               if (task.isComplete === false) {
                 return (
-                  <FormProvider>
+                  <FormProvider key={index}>
                     {" "}
                     <Task
                       className=" bg-orange-500"
@@ -89,7 +86,7 @@ export const TaskList = () => {
           {tasks.map((task, index) => {
             if (task.isComplete === true) {
               return (
-                <FormProvider>
+                <FormProvider key={index}>
                   {" "}
                   <Task
                     className=""

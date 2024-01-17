@@ -23,7 +23,6 @@ export const Form = ({
   const formSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
     if (taskValue.value.length > 0 && priorityValue.value.length > 0) {
-      console.log("form submitted successfully!");
       onSubmit(taskValue.value, priorityValue.value);
 
       setIsError(false);

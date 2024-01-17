@@ -1,11 +1,5 @@
-import { useContext } from "react";
-import { AddForm } from "./components/taskform/AddForm";
 import { TaskList } from "./components/tasklist/TaskList";
-import { TaskProvider } from "./contexts/TaskContext";
-import { Button, Icon, IconWrapper, Tooltip } from "./components/UI";
-import { FormContextType, ThemeContextType } from "./types/types.tasks";
-import { FormContext, FormProvider } from "./contexts/FormContext";
-import { ThemeContext } from "./contexts/ThemeContext";
+import { FormProvider } from "./contexts/FormContext";
 import { Container } from "./components/UI/Container";
 import { Navbar } from "./components/Navbar";
 import { Sidebar } from "./components/sidebar/Sidebar";

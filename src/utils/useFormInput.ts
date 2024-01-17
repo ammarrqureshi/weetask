@@ -5,14 +5,13 @@ export const useFormInput = (initialValue: string) => {
 
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
-    console.log(e.target.value)
     setInput(e.target.value);
   };
 
   const InputProps = {
-    value:input,
+    value: input,
     onChange: inputChangeHandler,
-    setInput: setInput
+    setInput: setInput,
   };
   return InputProps;
 };

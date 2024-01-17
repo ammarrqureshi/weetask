@@ -11,7 +11,7 @@ export const useFormSelect = (initialValue: string) => {
   const SelectProps = {
     value: select,
     onChange: selectChangeHandler,
-    setSelect: setSelect
+    setSelect: setSelect,
   };
   return SelectProps;
 };

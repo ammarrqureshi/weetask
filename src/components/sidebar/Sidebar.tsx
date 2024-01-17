@@ -3,7 +3,6 @@ import { FormContext } from "../../contexts/FormContext";
 import { FormContextType } from "../../types/types.tasks";
 import { Button, Icon } from "../UI";
 import { AddForm } from "../taskform/AddForm";
-import { TaskProvider } from "../../contexts/TaskContext";
 
 export const Sidebar = () => {
   const { isEditing, setIsEditing } = useContext(
@@ -26,7 +25,7 @@ export const Sidebar = () => {
         onClick={() => setIsEditing(true)}
       >
         <Icon name="plusCircleIcon" width="4px" height="4px" />
-        <p className="">Add Task</p>
+        <p>Add Task</p>
       </Button>
 
       {isEditing ? <AddForm /> : null}
