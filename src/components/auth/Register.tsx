@@ -2,7 +2,7 @@ import { Button } from "../UI";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 
-export const SignIn = () => {
+export const Register = () => {
   createUserWithEmailAndPassword(auth, "hello@hello.com", "blackmamba@786")
     .then((userCredential) => {
       // Signed up
@@ -17,7 +17,7 @@ export const SignIn = () => {
   return (
     <div>
       <Button onClick={() => createUserWithEmailAndPassword} Type="primary">
-        Sign Up
+        Register{" "}
       </Button>
     </div>
   );
