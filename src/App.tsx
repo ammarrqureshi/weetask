@@ -8,7 +8,7 @@ import { Register } from "./components/auth/Register";
 import { GoogleAuth } from "./components/auth/GoogleAuth";
 const App = () => {
   return (
-    <div className="App text-slate-200 h-full w-full ">
+    <div className="text-slate-200 h-full w-full ">
       <header className="w-full">
         <Navbar></Navbar>
       </header>
