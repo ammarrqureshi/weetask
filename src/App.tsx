@@ -5,6 +5,7 @@ import { Navbar } from "./components/Navbar";
 import { Sidebar } from "./components/sidebar/Sidebar";
 
 import { Register } from "./components/auth/Register";
+import { GoogleAuth } from "./components/auth/GoogleAuth";
 const App = () => {
   return (
     <div className="App text-slate-200 h-full w-full ">
@@ -18,6 +19,7 @@ const App = () => {
         <div className="box-border w-full">
           <Container>
             <Register />
+            <GoogleAuth />
             <TaskList></TaskList>
           </Container>
         </div>{" "}
