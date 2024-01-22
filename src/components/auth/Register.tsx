@@ -1,7 +1,8 @@
-import { Button } from "../UI";
+import { Button, Input } from "../UI";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import { Form } from "../UI/Form";
 
 export const Register = () => {
   const handleUserSignUp = () => {
@@ -27,6 +28,9 @@ export const Register = () => {
   };
   return (
     <div>
+      <form>
+        <Input placeholder="First Name" value={firstName} />
+      </form>
       <Button onClick={() => handleUserSignUp()} Type="primary">
         Register{" "}
       </Button>

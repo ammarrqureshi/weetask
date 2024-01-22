@@ -1,9 +1,4 @@
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-  getAuth,
-  signInWithRedirect,
-} from "firebase/auth";
+import { GoogleAuthProvider, getAuth, signInWithRedirect } from "firebase/auth";
 import { Button } from "../UI";
 export const GoogleAuth = () => {
   const provider = new GoogleAuthProvider();
@@ -12,10 +7,8 @@ export const GoogleAuth = () => {
   };
 
   return (
-    <div>
-      <Button Type="secondary" onClick={() => handleGoogleSignIn()}>
-        Sign Up with Google
-      </Button>
-    </div>
+    <Button Type="secondary" onClick={() => handleGoogleSignIn()}>
+      Sign Up with Google
+    </Button>
   );
 };
