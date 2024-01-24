@@ -18,8 +18,6 @@ const App = () => {
         </FormProvider>
         <div className="box-border w-full">
           <Container>
-            <Register />
-            <GoogleAuth />
             <TaskList></TaskList>
           </Container>
         </div>{" "}
