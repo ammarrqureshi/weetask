@@ -29,7 +29,7 @@ export const Register = () => {
   return (
     <div>
       <form>
-        <Input placeholder="First Name" value={firstName} />
+        <Input label="First Name" placeholder="First Name" />
       </form>
       <Button onClick={() => handleUserSignUp()} Type="primary">
         Register{" "}
